@@ -8,11 +8,12 @@ part of 'favourite_state.dart';
 
 _$_FavouriteState _$$_FavouriteStateFromJson(Map<String, dynamic> json) =>
     _$_FavouriteState(
-      favourite:
-          (json['favourite'] as List<dynamic>).map((e) => e as String).toList(),
+      favourites: (json['favourites'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$$_FavouriteStateToJson(_$_FavouriteState instance) =>
     <String, dynamic>{
-      'favourite': instance.favourite,
+      'favourites': instance.favourites,
     };

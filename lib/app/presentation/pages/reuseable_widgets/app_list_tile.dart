@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomListTile extends StatelessWidget {
-  const CustomListTile({
+class AppListTile extends StatelessWidget {
+  const AppListTile({
     super.key,
     required this.title,
     this.onTap,
@@ -15,7 +15,9 @@ class CustomListTile extends StatelessWidget {
     return ListTile(
       onTap: onTap,
       title: Text(title),
-      trailing: const Icon(Icons.arrow_forward_ios),
+      trailing: const Icon(
+        Icons.arrow_forward_ios,
+      ),
     );
   }
 }

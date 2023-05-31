@@ -20,7 +20,7 @@ FavouriteState _$FavouriteStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FavouriteState {
-  List<String> get favourite => throw _privateConstructorUsedError;
+  List<String> get favourites => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $FavouriteStateCopyWith<$Res> {
           FavouriteState value, $Res Function(FavouriteState) then) =
       _$FavouriteStateCopyWithImpl<$Res, FavouriteState>;
   @useResult
-  $Res call({List<String> favourite});
+  $Res call({List<String> favourites});
 }
 
 /// @nodoc
@@ -50,12 +50,12 @@ class _$FavouriteStateCopyWithImpl<$Res, $Val extends FavouriteState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? favourite = null,
+    Object? favourites = null,
   }) {
     return _then(_value.copyWith(
-      favourite: null == favourite
-          ? _value.favourite
-          : favourite // ignore: cast_nullable_to_non_nullable
+      favourites: null == favourites
+          ? _value.favourites
+          : favourites // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ) as $Val);
   }
@@ -69,7 +69,7 @@ abstract class _$$_FavouriteStateCopyWith<$Res>
       __$$_FavouriteStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<String> favourite});
+  $Res call({List<String> favourites});
 }
 
 /// @nodoc
@@ -83,12 +83,12 @@ class __$$_FavouriteStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? favourite = null,
+    Object? favourites = null,
   }) {
     return _then(_$_FavouriteState(
-      favourite: null == favourite
-          ? _value._favourite
-          : favourite // ignore: cast_nullable_to_non_nullable
+      favourites: null == favourites
+          ? _value._favourites
+          : favourites // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
   }
@@ -97,23 +97,23 @@ class __$$_FavouriteStateCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_FavouriteState implements _FavouriteState {
-  const _$_FavouriteState({required final List<String> favourite})
-      : _favourite = favourite;
+  const _$_FavouriteState({required final List<String> favourites})
+      : _favourites = favourites;
 
   factory _$_FavouriteState.fromJson(Map<String, dynamic> json) =>
       _$$_FavouriteStateFromJson(json);
 
-  final List<String> _favourite;
+  final List<String> _favourites;
   @override
-  List<String> get favourite {
-    if (_favourite is EqualUnmodifiableListView) return _favourite;
+  List<String> get favourites {
+    if (_favourites is EqualUnmodifiableListView) return _favourites;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_favourite);
+    return EqualUnmodifiableListView(_favourites);
   }
 
   @override
   String toString() {
-    return 'FavouriteState(favourite: $favourite)';
+    return 'FavouriteState(favourites: $favourites)';
   }
 
   @override
@@ -122,13 +122,13 @@ class _$_FavouriteState implements _FavouriteState {
         (other.runtimeType == runtimeType &&
             other is _$_FavouriteState &&
             const DeepCollectionEquality()
-                .equals(other._favourite, _favourite));
+                .equals(other._favourites, _favourites));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_favourite));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_favourites));
 
   @JsonKey(ignore: true)
   @override
@@ -145,14 +145,14 @@ class _$_FavouriteState implements _FavouriteState {
 }
 
 abstract class _FavouriteState implements FavouriteState {
-  const factory _FavouriteState({required final List<String> favourite}) =
+  const factory _FavouriteState({required final List<String> favourites}) =
       _$_FavouriteState;
 
   factory _FavouriteState.fromJson(Map<String, dynamic> json) =
       _$_FavouriteState.fromJson;
 
   @override
-  List<String> get favourite;
+  List<String> get favourites;
   @override
   @JsonKey(ignore: true)
   _$$_FavouriteStateCopyWith<_$_FavouriteState> get copyWith =>

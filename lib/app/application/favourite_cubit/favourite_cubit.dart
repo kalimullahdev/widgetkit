@@ -1,25 +1,25 @@
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:widgetkit/app/application/favourite_bloc/favourite_state.dart';
+import 'package:widgetkit/app/application/favourite_cubit/favourite_state.dart';
 
 class FavouriteCubit extends HydratedCubit<FavouriteState> {
-  FavouriteCubit() : super(const FavouriteState(favourite: []));
+  FavouriteCubit() : super(const FavouriteState(favourites: []));
 
   void addToFavourite(String widgetName) {
     emit(
-      state.copyWith(favourite: [
+      state.copyWith(favourites: [
         widgetName,
-        ...state.favourite,
+        ...state.favourites,
       ]),
     );
   }
 
   void removeFromFavourite(String widgetName) {
-    List<String> updatedFavouriteList = state.favourite.toList();
+    List<String> updatedFavouriteList = state.favourites.toList();
     updatedFavouriteList.removeWhere(
       (widgetN) => widgetN == widgetName,
     );
 
-    emit(state.copyWith(favourite: updatedFavouriteList));
+    emit(state.copyWith(favourites: updatedFavouriteList));
   }
 
   @override

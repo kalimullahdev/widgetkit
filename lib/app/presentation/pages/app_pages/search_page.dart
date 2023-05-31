@@ -14,29 +14,26 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: TextField(
-            decoration: const InputDecoration(
-              hintText: AppStrings.searchWidget,
-            ),
-            onChanged: (text) {
-              filteredWidgets =
-                  Map.fromEntries(widgetsMap.entries.where((entry) {
-                return entry.key.toLowerCase().contains(text.toLowerCase());
-              })).values.toList();
-              setState(() {});
-            },
+    return Scaffold(
+      appBar: AppBar(
+        title: TextField(
+          decoration: const InputDecoration(
+            hintText: AppStrings.searchWidget,
           ),
+          onChanged: (text) {
+            filteredWidgets = Map.fromEntries(widgetsMap.entries.where((entry) {
+              return entry.key.toLowerCase().contains(text.toLowerCase());
+            })).values.toList();
+            setState(() {});
+          },
         ),
-        body: Center(
-          child: ListView.builder(
-            itemCount: filteredWidgets.length,
-            itemBuilder: (BuildContext context, int index) {
-              return filteredWidgets[index];
-            },
-          ),
+      ),
+      body: Center(
+        child: ListView.builder(
+          itemCount: filteredWidgets.length,
+          itemBuilder: (BuildContext context, int index) {
+            return filteredWidgets[index];
+          },
         ),
       ),
     );

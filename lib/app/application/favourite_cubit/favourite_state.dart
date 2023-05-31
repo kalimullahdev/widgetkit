@@ -6,7 +6,7 @@ part 'favourite_state.g.dart';
 @freezed
 class FavouriteState with _$FavouriteState {
   const factory FavouriteState({
-    required List<String> favourite,
+    required List<String> favourites,
   }) = _FavouriteState;
 
   factory FavouriteState.fromJson(Map<String, dynamic> json) =>
