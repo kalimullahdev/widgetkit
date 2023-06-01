@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:widgetkit/app/application/theme_cubit/theme_cubit.dart';
-import 'package:widgetkit/app/core/app_routes_name.dart';
 import 'package:widgetkit/app/core/color_schemes.g.dart';
-import 'package:widgetkit/app/core/icon_theme.dart';
-import 'package:widgetkit/app/presentation/pages/app_pages/favourite_page.dart';
-import 'package:widgetkit/app/presentation/pages/app_pages/home_page.dart';
+import 'package:widgetkit/app/core/routing/app_routes_name.dart';
+import 'package:widgetkit/app/core/theme/icon_theme.dart';
+import 'package:widgetkit/app/presentation/pages/favourite.dart';
+import 'package:widgetkit/app/presentation/pages/home/home.dart';
 
 class WidgetkitApp extends StatelessWidget {
   const WidgetkitApp({super.key});

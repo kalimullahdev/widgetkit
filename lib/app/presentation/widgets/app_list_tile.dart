@@ -4,10 +4,12 @@ class AppListTile extends StatelessWidget {
   const AppListTile({
     super.key,
     required this.title,
-    this.onTap,
+    required this.onTap,
+    this.showTrailingArrow = false,
   });
 
   final String title;
+  final bool showTrailingArrow;
   final void Function()? onTap;
 
   @override
@@ -15,9 +17,7 @@ class AppListTile extends StatelessWidget {
     return ListTile(
       onTap: onTap,
       title: Text(title),
-      trailing: const Icon(
-        Icons.arrow_forward_ios,
-      ),
+      trailing: showTrailingArrow ? const Icon(Icons.arrow_forward_ios) : null,
     );
   }
 }

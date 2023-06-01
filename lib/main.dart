@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:widgetkit/app/application/favourite_cubit/favourite_cubit.dart';
+import 'package:widgetkit/app/application/search_cubit/search_cubit.dart';
 import 'package:widgetkit/app/core/app_startup_config.dart';
 import 'package:widgetkit/widgetkit_app.dart';
 
@@ -18,6 +21,9 @@ Future<void> main() async {
         ),
         BlocProvider<ThemeCubit>(
           create: (BuildContext context) => ThemeCubit(),
+        ),
+        BlocProvider<SearchCubit>(
+          create: (BuildContext context) => SearchCubit(),
         ),
       ],
       child: const WidgetkitApp(),
