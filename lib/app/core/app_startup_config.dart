@@ -10,6 +10,4 @@ Future<void> runAppStartupConfig() async {
   ThemeCubit().changeTheme(_isDarkMode);
 }
 
-bool get _isDarkMode {
-  return PlatformDispatcher.instance.platformBrightness == Brightness.dark;
-}
+bool get _isDarkMode => PlatformDispatcher.instance.platformBrightness == Brightness.dark;

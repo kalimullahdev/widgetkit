@@ -16,9 +16,7 @@ class ThemeChangingIcon extends StatelessWidget {
           padding: const EdgeInsets.only(right: 4.0),
           child: IconButton(
             icon: Icon(isDarkMode ? Icons.sunny : FontAwesomeIcons.solidMoon),
-            onPressed: () {
-              context.read<ThemeCubit>().changeTheme(!isDarkMode);
-            },
+            onPressed: () => context.read<ThemeCubit>().changeTheme(!isDarkMode),
           ),
         );
       },
