@@ -24,9 +24,7 @@ class _SearchPageState extends State<SearchPage> {
           decoration: const InputDecoration(
             hintText: "Search widget",
           ),
-          onChanged: (query) async {
-            context.read<SearchCubit>().search(query);
-          },
+          onChanged: (query) async => context.read<SearchCubit>().search(query),
         ),
       ),
       body: Center(
@@ -38,7 +36,7 @@ class _SearchPageState extends State<SearchPage> {
           builder: (context, searchState) {
             return searchState.map(
               empty: (_) => const Text("Search widgets"),
-              notFound: (_) => const Text("Widget not found"),
+              notFound: (_) => const Text("No widget found"),
               success: (value) {
                 return ListView.builder(
                   itemCount: value.widgets.length,
