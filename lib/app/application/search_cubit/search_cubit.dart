@@ -23,7 +23,7 @@ class SearchCubit extends Cubit<SearchState> with FilterWidgetsMixin {
     EasyDebounce.debounce('debouncer', const Duration(milliseconds: 350), () async {
       List<String> keywords = query.split(' ');
       keywords.removeWhere((keyword) => keyword.trim().isEmpty);
-      final widgets = await searchedWidgetsFromKeywords(keywords);
+      final widgets = await searchedWidgets(keywords);
       emit(widgets.isEmpty ? const SearchState.notFound([]) : SearchState.success(widgets));
     });
   }

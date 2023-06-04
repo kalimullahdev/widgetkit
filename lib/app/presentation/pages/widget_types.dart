@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:widgetkit/app/core/routing/nav.dart';
-import 'package:widgetkit/app/domain/data_classes/widget_types_page_data.dart';
+import 'package:widgetkit/app/domain/data_classes/widget_types_page.dart';
 import 'package:widgetkit/app/presentation/widgets/app_list_tile.dart';
 import 'package:widgetkit/app/presentation/widgets/theme_changing_icon.dart';
 
 class WidgetTypesPage extends StatelessWidget {
-  final WidgetTypesPageData widgetTypesPageData;
+  final WidgetTypesPageDataClass widgetTypesPageDataClass;
 
   const WidgetTypesPage({
     Key? key,
-    required this.widgetTypesPageData,
+    required this.widgetTypesPageDataClass,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widgetTypesPageData.appbarTitle),
+        title: Text(widgetTypesPageDataClass.appbarTitle),
         actions: const [ThemeChangingIcon()],
       ),
       body: ListView.builder(
-        itemCount: widgetTypesPageData.widgetTypeDataList.length,
+        itemCount: widgetTypesPageDataClass.widgetTypeDataList.length,
         itemBuilder: (BuildContext context, int index) {
-          final widgetTypeData = widgetTypesPageData.widgetTypeDataList[index];
+          final widgetTypeData = widgetTypesPageDataClass.widgetTypeDataList[index];
 
           return AppListTile(
             title: widgetTypeData.title,

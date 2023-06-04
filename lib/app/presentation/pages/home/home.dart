@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:widgetkit/app/core/routing/app_routes_name.dart';
 import 'package:widgetkit/app/core/routing/nav.dart';
-import 'package:widgetkit/app/presentation/data/widget_types_pages_data.dart';
+import 'package:widgetkit/app/presentation/data/widget_types_pages.dart';
 import 'package:widgetkit/app/presentation/pages/home/widgets/app_drawer.dart';
 import 'package:widgetkit/app/presentation/pages/search.dart';
 import 'package:widgetkit/app/presentation/pages/widget_types.dart';
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
             onTap: () {
               Nav.push(
                 context,
-                const WidgetTypesPage(widgetTypesPageData: materialWidgetTypesPageData),
+                const WidgetTypesPage(widgetTypesPageDataClass: WidgetTypesPagesData.material),
               );
             },
             showTrailingArrow: true,
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
             onTap: () {
               Nav.push(
                 context,
-                const WidgetTypesPage(widgetTypesPageData: cupertinoWidgetTypesPageData),
+                const WidgetTypesPage(widgetTypesPageDataClass: WidgetTypesPagesData.cupertino),
               );
             },
             showTrailingArrow: true,

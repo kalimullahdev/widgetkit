@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:widgetkit/app/presentation/data/widget_keys.dart';
-import 'package:widgetkit/app/presentation/data/widget_viewer_data_catalogue.dart';
+import 'package:widgetkit/app/presentation/data/widget_viewer.dart';
 import 'package:widgetkit/app/presentation/widgets/widget_viewer.dart';
 
 final Map<String, Widget> widgetsMap = {
-  WidgetKeys.materialAppbar: WidgetViewer.material(widgetViewerData: WidgetViewerDataCatalogue.materialAppbar),
-  WidgetKeys.materialElevatedButton: WidgetViewer.material(widgetViewerData: WidgetViewerDataCatalogue.materialElevatedButton),
-  WidgetKeys.materialOutlinedButton: WidgetViewer.material(widgetViewerData: WidgetViewerDataCatalogue.materialOutlinedButton),
-  WidgetKeys.materialTextButton: WidgetViewer.material(widgetViewerData: WidgetViewerDataCatalogue.materialTextButton),
-  WidgetKeys.materialFloatingActionButton: WidgetViewer.material(widgetViewerData: WidgetViewerDataCatalogue.materialFloatingActionButton),
+  WidgetKeys.materialAppbar: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialAppbar),
+  WidgetKeys.materialAppbarAction: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialAppbarAction),
+  WidgetKeys.materialElevatedButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialElevatedButton),
+  WidgetKeys.materialElevatedButtonV1: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialElevatedButtonV1),
+  WidgetKeys.materialOutlinedButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialOutlinedButton),
+  WidgetKeys.materialTextButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialTextButton),
+  WidgetKeys.materialFloatingActionButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialFloatingActionButton),
 };
