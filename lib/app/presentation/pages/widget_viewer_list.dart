@@ -7,10 +7,12 @@ class WidgetViewerListPage extends StatefulWidget {
     Key? key,
     this.customAppbarTitle,
     required this.keywords,
+    this.showVariation = false,
   }) : super(key: key);
 
   final String? customAppbarTitle;
   final List<String> keywords;
+  final bool showVariation;
 
   @override
   State<WidgetViewerListPage> createState() => _WidgetViewerListPageState();
@@ -19,15 +21,15 @@ class WidgetViewerListPage extends StatefulWidget {
 class _WidgetViewerListPageState extends State<WidgetViewerListPage> with FilterWidgetsMixin {
   @override
   Widget build(BuildContext context) {
-    final title = ModalRoute.of(context)!.settings.arguments as String;
+    final title = ModalRoute.of(context)?.settings.arguments as String?;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.customAppbarTitle ?? title),
+        title: Text(widget.customAppbarTitle ?? title ?? ''),
         actions: const [ThemeChangingIcon()],
       ),
       body: FutureBuilder(
-        future: filterWidgetsFromKeywords(widget.keywords),
+        future: widget.showVariation ? filterWidgets(widget.keywords) : filterWidgetsWithoutVariations(widget.keywords),
         builder: (context, snapshot) {
           if (snapshot.hasData && snapshot.data != null) {
             final filteredWidgets = snapshot.data!;

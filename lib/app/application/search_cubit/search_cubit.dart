@@ -13,15 +13,17 @@ class SearchCubit extends Cubit<SearchState> with FilterWidgetsMixin {
   SearchCubit() : super(const SearchState.empty([]));
 
   Future<void> search(String query) async {
-    if (query.isEmpty) {
+    if (query.trim().isEmpty) {
+      EasyDebounce.cancel('debouncer');
       emit(const SearchState.empty([]));
       return;
     }
     emit(SearchState.loading(state.widgets));
 
     EasyDebounce.debounce('debouncer', const Duration(milliseconds: 350), () async {
-      List<String> keywords = query.split(' ')..removeWhere((element) => element.isEmpty);
-      final widgets = await searchedWidgetsFromKeywords(keywords);
+      List<String> keywords = query.split(' ');
+      keywords.removeWhere((keyword) => keyword.trim().isEmpty);
+      final widgets = await searchedWidgets(keywords);
       emit(widgets.isEmpty ? const SearchState.notFound([]) : SearchState.success(widgets));
     });
   }

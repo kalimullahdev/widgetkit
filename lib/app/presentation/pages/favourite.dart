@@ -22,7 +22,7 @@ class _FavouritePageState extends State<FavouritePage> {
       ),
       body: BlocBuilder<FavouriteCubit, FavouriteState>(
         builder: (context, favouriteState) {
-          final favouriteWidgetList = _widgetKeysListToWidgetsList(favouriteState.favourites, widgetsMap);
+          final favouriteWidgetList = _widgetKeysToWidgets(favouriteState.favourites);
 
           return ListView.builder(
             itemCount: favouriteWidgetList.length,
@@ -33,11 +33,9 @@ class _FavouritePageState extends State<FavouritePage> {
     );
   }
 
-  List<Widget> _widgetKeysListToWidgetsList(List<String> widgetKeysList, Map<String, Widget> widgetMap) {
-    final widgetsEntries = widgetMap.entries.where(
-      (element) {
-        return widgetKeysList.contains(element.key);
-      },
+  List<Widget> _widgetKeysToWidgets(List<String> widgetKeysList) {
+    final widgetsEntries = widgetsMap.entries.where(
+      (element) => widgetKeysList.contains(element.key),
     );
 
     return Map.fromEntries(widgetsEntries).values.toList();

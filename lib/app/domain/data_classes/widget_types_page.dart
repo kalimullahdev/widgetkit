@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class WidgetTypesPageData {
+class WidgetTypesPageDataClass {
   final String appbarTitle;
   final List<WidgetTypeData> widgetTypeDataList;
 
-  const WidgetTypesPageData({
+  const WidgetTypesPageDataClass({
     required this.appbarTitle,
     required this.widgetTypeDataList,
   });

@@ -7,33 +7,36 @@ import 'package:widgetkit/app/application/favourite_cubit/favourite_state.dart';
 import 'package:widgetkit/app/core/constants/app_svgs.dart';
 import 'package:widgetkit/app/core/extensions/e_buildcontext.dart';
 import 'package:widgetkit/app/core/routing/app_routes_name.dart';
-import 'package:widgetkit/app/domain/data_classes/widget_view_data.dart';
+import 'package:widgetkit/app/core/routing/nav.dart';
+import 'package:widgetkit/app/domain/data_classes/widget_viewer.dart';
 import 'package:widgetkit/app/presentation/widgets/material2_wrapper.dart';
 
 class WidgetViewer extends StatefulWidget {
-  factory WidgetViewer.material({required WidgetViewerData widgetViewerData}) {
+  factory WidgetViewer.material({
+    required WidgetViewerDataClass widgetViewerDataClass,
+  }) {
     return WidgetViewer._(
-      title: widgetViewerData.title,
-      widgetFileName: widgetViewerData.widgetFileName,
-      widget: Material2Wrapper(child: widgetViewerData.widget),
-      widgetKey: widgetViewerData.widgetKey,
-      widgetName: widgetViewerData.widget.toString(),
-      onVariationPressed: widgetViewerData.onVariationPressed,
-      onExpandPressed: widgetViewerData.onExpandPressed,
-      onPlayPressed: widgetViewerData.onPlayPressed,
+      title: widgetViewerDataClass.title,
+      widgetFileName: widgetViewerDataClass.widgetFileName,
+      widget: Material2Wrapper(child: widgetViewerDataClass.widget),
+      widgetKey: widgetViewerDataClass.widgetKey,
+      widgetName: widgetViewerDataClass.widget.toString(),
+      widgetVariationPage: widgetViewerDataClass.widgetVariationPage,
+      expandWidgetPage: widgetViewerDataClass.expandWidgetPage,
+      playWidgetPage: widgetViewerDataClass.playWidgetPage,
     );
   }
 
-  factory WidgetViewer.material3({required WidgetViewerData widgetViewerData}) {
+  factory WidgetViewer.material3({required WidgetViewerDataClass widgetViewerDataClass}) {
     return WidgetViewer._(
-      title: widgetViewerData.title,
-      widgetFileName: widgetViewerData.widgetFileName,
-      widget: widgetViewerData.widget,
-      widgetKey: widgetViewerData.widgetKey,
-      widgetName: widgetViewerData.widget.toString(),
-      onVariationPressed: widgetViewerData.onVariationPressed,
-      onExpandPressed: widgetViewerData.onExpandPressed,
-      onPlayPressed: widgetViewerData.onPlayPressed,
+      title: widgetViewerDataClass.title,
+      widgetFileName: widgetViewerDataClass.widgetFileName,
+      widget: widgetViewerDataClass.widget,
+      widgetKey: widgetViewerDataClass.widgetKey,
+      widgetName: widgetViewerDataClass.widget.toString(),
+      widgetVariationPage: widgetViewerDataClass.widgetVariationPage,
+      expandWidgetPage: widgetViewerDataClass.expandWidgetPage,
+      playWidgetPage: widgetViewerDataClass.playWidgetPage,
     );
   }
   const WidgetViewer._({
@@ -42,9 +45,9 @@ class WidgetViewer extends StatefulWidget {
     required this.widgetFileName,
     required this.widgetKey,
     required this.widgetName,
-    this.onVariationPressed,
-    this.onPlayPressed,
-    this.onExpandPressed,
+    this.widgetVariationPage,
+    this.expandWidgetPage,
+    this.playWidgetPage,
   });
 
   final String title;
@@ -52,9 +55,9 @@ class WidgetViewer extends StatefulWidget {
   final String widgetName;
   final String widgetFileName;
   final String widgetKey;
-  final void Function()? onVariationPressed;
-  final void Function()? onPlayPressed;
-  final void Function()? onExpandPressed;
+  final Widget? widgetVariationPage;
+  final Widget? expandWidgetPage;
+  final Widget? playWidgetPage;
 
   @override
   State<WidgetViewer> createState() => _WidgetViewerState();
@@ -88,17 +91,17 @@ class _WidgetViewerState extends State<WidgetViewer> {
                   ),
                   Row(
                     children: [
-                      if (widget.onPlayPressed != null)
+                      if (widget.playWidgetPage != null)
                         IconButton(
-                          onPressed: widget.onPlayPressed,
+                          onPressed: () => Nav.push(context, widget.playWidgetPage!),
                           icon: Icon(
                             Icons.play_circle_outline_rounded,
                             color: Theme.of(context).colorScheme.onBackground,
                           ),
                         ),
-                      if (widget.onVariationPressed != null)
+                      if (widget.widgetVariationPage != null)
                         IconButton(
-                          onPressed: widget.onVariationPressed,
+                          onPressed: () => Nav.push(context, widget.widgetVariationPage!),
                           icon: SvgPicture.asset(
                             AppSvgs.variations,
                             height: 20,
@@ -108,9 +111,9 @@ class _WidgetViewerState extends State<WidgetViewer> {
                             ),
                           ),
                         ),
-                      if (widget.onExpandPressed != null)
+                      if (widget.expandWidgetPage != null)
                         IconButton(
-                          onPressed: widget.onExpandPressed,
+                          onPressed: () => Nav.push(context, widget.expandWidgetPage!),
                           icon: Icon(
                             Icons.expand_rounded,
                             color: Theme.of(context).colorScheme.onBackground,
@@ -199,20 +202,7 @@ class _WidgetViewerState extends State<WidgetViewer> {
                 ),
                 const SizedBox(height: 12),
               ],
-              Container(
-                // decoration: BoxDecoration(
-                //   borderRadius: BorderRadius.circular(8),
-                //   border: Border.all(
-                //     color: context.watch<ThemeCubit>().state
-                //         ? const Color.fromARGB(6, 255, 255, 255)
-                //         : Colors.black12,
-                //     style: BorderStyle.solid,
-                //   ),
-                // ),
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 0), //TODO: think give padding 0, 4 or 8
-                child: widget.widget,
-              ),
+              Center(child: widget.widget),
               // const SizedBox(height: 8),
             ],
           ),
@@ -274,3 +264,5 @@ class _WidgetViewerTextButton extends StatelessWidget {
     );
   }
 }
+  // 
+  // 

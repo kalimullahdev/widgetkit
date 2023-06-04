@@ -6,13 +6,7 @@ class MaterialAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text("Material Appbar"),
-      actions: [
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.settings),
-        ),
-      ],
+      title: const Text("Appbar"),
     );
   }
 }
