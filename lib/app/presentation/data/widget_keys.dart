@@ -24,4 +24,6 @@ class WidgetKeys {
   static const String materialOutlinedButton = '${materialButton}outlined';
   static const String materialTextButton = "${materialButton}text";
   static const String materialFloatingActionButton = "${materialButton}floatingaction";
+
+  static const String cupertino = 'cupertino';
 }

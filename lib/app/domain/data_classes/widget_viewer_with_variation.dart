@@ -5,13 +5,15 @@ class WidgetViewerWithVariationDataClass extends WidgetViewerDataClass {
   final Widget variationPage;
   final WidgetViewerDataClass widgetViewerDataClass;
   final String widgetKeyName;
+  final String? widgetTitle;
 
   WidgetViewerWithVariationDataClass({
     required this.variationPage,
     required this.widgetViewerDataClass,
     required this.widgetKeyName,
+    this.widgetTitle,
   }) : super(
-          title: widgetViewerDataClass.title,
+          title: widgetTitle ?? widgetViewerDataClass.title,
           widgetFileName: widgetViewerDataClass.widgetFileName,
           widget: widgetViewerDataClass.widget,
           widgetKey: widgetKeyName,

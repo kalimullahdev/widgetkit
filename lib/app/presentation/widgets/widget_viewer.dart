@@ -11,6 +11,8 @@ import 'package:widgetkit/app/core/routing/app_routes_name.dart';
 import 'package:widgetkit/app/core/routing/nav.dart';
 import 'package:widgetkit/app/domain/data_classes/widget_viewer.dart';
 import 'package:widgetkit/app/domain/data_classes/widget_viewer_with_variation.dart';
+import 'package:widgetkit/app/presentation/data/widget_keys.dart';
+import 'package:widgetkit/app/presentation/dialogs/remove_from_favorite.dart';
 import 'package:widgetkit/app/presentation/pages/full_screen_viewer/material2_full_screen_viewer.dart';
 import 'package:widgetkit/app/presentation/widgets/material2_wrapper.dart';
 
@@ -71,6 +73,12 @@ class _WidgetViewerState extends State<WidgetViewer> {
 
   @override
   Widget build(BuildContext context) {
+    final String? widgetDesignSystem = widget.widgetKey.contains(WidgetKeys.material)
+        ? "Material"
+        : widget.widgetKey.contains(WidgetKeys.cupertino)
+            ? "Cupertino"
+            : null;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
       child: Card(
@@ -82,10 +90,27 @@ class _WidgetViewerState extends State<WidgetViewer> {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Text(
-                  widget.title, // character limit is 30
-                  overflow: TextOverflow.ellipsis,
-                  style: context.themeData.textTheme.titleMedium,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      widget.title, // character limit is 30
+                      overflow: TextOverflow.ellipsis,
+                      style: context.themeData.textTheme.titleMedium,
+                    ),
+                    (widgetDesignSystem == null)
+                        ? const _VerticleDivider()
+                        : Row(
+                            children: [
+                              const _VerticleDivider(),
+                              const SizedBox(width: 8),
+                              Text(
+                                widgetDesignSystem,
+                                style: context.themeData.textTheme.bodySmall,
+                              ),
+                            ],
+                          )
+                  ],
                 ),
               ),
               const _Divider(),
@@ -155,7 +180,7 @@ class _WidgetViewerState extends State<WidgetViewer> {
                             final isFavoritePage = currentPageName != null && currentPageName == AppRouteNames.favoriteRoute;
 
                             if (isFavoritePage) {
-                              final removeFromFavorite = await _removeFromFavoriteDialog(context, widget.title) ?? false;
+                              final removeFromFavorite = await removeFromFavoriteDialog(context, widget.title) ?? false;
 
                               if (removeFromFavorite) {
                                 favouriteCubit.removeFromFavourite(widget.widgetKey);
@@ -214,26 +239,17 @@ class _WidgetViewerState extends State<WidgetViewer> {
       ),
     );
   }
+}
 
-  Future<bool?> _removeFromFavoriteDialog(
-    BuildContext context,
-    String widgetName,
-  ) {
-    return showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) => AlertDialog(
-        title: const Text('Are you sure?'),
-        content: Text('You want to remove $widgetName widget from your favourite widgets'),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(context, true),
-            child: const Text('Yes'),
-          ),
-        ],
+class _VerticleDivider extends StatelessWidget {
+  const _VerticleDivider();
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 20,
+      child: VerticalDivider(
+        color: context.themeData.dividerColor.withOpacity(.2),
       ),
     );
   }

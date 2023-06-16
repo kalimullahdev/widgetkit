@@ -47,6 +47,7 @@ class WidgetViewerData {
   );
 
   static final materialAppbar = WidgetViewerWithVariationDataClass(
+    widgetTitle: 'Appbar',
     widgetKeyName: WidgetKeys.materialAppbar,
     widgetViewerDataClass: materialAppbarBasic,
     variationPage: WidgetVariationsPage(

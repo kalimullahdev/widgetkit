@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class WidgetViewerDataClass {
   final String title;
-  // final String variationTitle;
   final Widget widget;
   final String widgetFileName;
   final String widgetKey;
