@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:widgetkit/app/domain/data_classes/widget_viewer.dart';
+import 'package:widgetkit/app/domain/data_classes/widget_viewer_with_variation.dart';
 import 'package:widgetkit/app/presentation/data/widget_keys.dart';
 import 'package:widgetkit/app/presentation/data/widget_variations.dart';
 import 'package:widgetkit/app/presentation/pages/full_screen_viewer/material2_full_screen_viewer.dart';
@@ -14,18 +15,35 @@ import 'package:widgetkit/widgets/material_outlined_button.dart';
 import 'package:widgetkit/widgets/material_text_button.dart';
 
 class WidgetViewerData {
-  static const materialAppbarBasic = WidgetViewerDataClass(
+  static final materialAppbarBasic = WidgetViewerDataClass(
     title: 'Basic Appbar',
-    widget: MaterialAppbar(),
+    widget: const MaterialAppbar(),
     widgetKey: WidgetKeys.materialAppbarBasic,
     widgetFileName: 'material_appbar.dart',
+    expandWidgetPage: Material2FullScreenViewerPage(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Text("Appbar"),
+      ),
+    ),
   );
 
-  static const materialAppbarAction = WidgetViewerDataClass(
+  static final materialAppbarAction = WidgetViewerDataClass(
     title: 'Appbar with action',
-    widget: MaterialAppbarAction(),
+    widget: const MaterialAppbarAction(),
     widgetKey: WidgetKeys.materialAppbarAction,
     widgetFileName: 'material_appbar_action.dart',
+    expandWidgetPage: Material2FullScreenViewerPage(
+      appBar: AppBar(
+        title: const Text("Appbar"),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.settings),
+          ),
+        ],
+      ),
+    ),
   );
 
   static final materialAppbar = WidgetViewerWithVariationDataClass(
@@ -53,7 +71,6 @@ class WidgetViewerData {
         )
       ],
     ),
-    playWidgetPage: const ElevatedButtonPlayerPage(),
     expandWidgetPage: const Material2FullScreenViewerPage(widget: MaterialElevatedButton()),
   );
 
@@ -84,41 +101,4 @@ class WidgetViewerData {
     widgetKey: WidgetKeys.materialFloatingActionButton,
     widgetFileName: 'material_floating_action_button.dart',
   );
-}
-
-//TODO: Temporary
-class ElevatedButtonPlayerPage extends StatelessWidget {
-  const ElevatedButtonPlayerPage({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Elevated Button'),
-      ),
-      body: const Center(
-        child: Text('Elevated Button Player'),
-      ),
-    );
-  }
-}
-
-//TODO: separate it
-class WidgetViewerWithVariationDataClass extends WidgetViewerDataClass {
-  final Widget variationPage;
-  final WidgetViewerDataClass widgetViewerDataClass;
-  final String widgetKeyName;
-
-  WidgetViewerWithVariationDataClass({
-    required this.variationPage,
-    required this.widgetViewerDataClass,
-    required this.widgetKeyName,
-  }) : super(
-          title: widgetViewerDataClass.title,
-          widgetFileName: widgetViewerDataClass.widgetFileName,
-          widget: widgetViewerDataClass.widget,
-          widgetKey: widgetKeyName,
-          expandWidgetPage: widgetViewerDataClass.expandWidgetPage,
-          playWidgetPage: widgetViewerDataClass.playWidgetPage,
-          widgetVariationPage: widgetViewerDataClass.widgetVariationPage,
-        );
 }

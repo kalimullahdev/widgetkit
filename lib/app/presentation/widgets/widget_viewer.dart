@@ -10,7 +10,8 @@ import 'package:widgetkit/app/core/extensions/e_buildcontext.dart';
 import 'package:widgetkit/app/core/routing/app_routes_name.dart';
 import 'package:widgetkit/app/core/routing/nav.dart';
 import 'package:widgetkit/app/domain/data_classes/widget_viewer.dart';
-import 'package:widgetkit/app/presentation/data/widget_viewer.dart';
+import 'package:widgetkit/app/domain/data_classes/widget_viewer_with_variation.dart';
+import 'package:widgetkit/app/presentation/pages/full_screen_viewer/material2_full_screen_viewer.dart';
 import 'package:widgetkit/app/presentation/widgets/material2_wrapper.dart';
 
 class WidgetViewer extends StatefulWidget {
@@ -174,14 +175,17 @@ class _WidgetViewerState extends State<WidgetViewer> {
                       );
                     },
                   ),
-                  if (widget.expandWidgetPage != null)
-                    IconButton(
-                      onPressed: () => Nav.push(context, widget.expandWidgetPage!),
-                      icon: Icon(
-                        Icons.expand_rounded,
-                        color: Theme.of(context).colorScheme.onBackground,
-                      ),
+                  // if (widget.expandWidgetPage != null)
+                  IconButton(
+                    onPressed: () => Nav.push(
+                      context,
+                      widget.expandWidgetPage ?? Material2FullScreenViewerPage(widget: widget.widget),
                     ),
+                    icon: Icon(
+                      Icons.expand_rounded,
+                      color: Theme.of(context).colorScheme.onBackground,
+                    ),
+                  ),
                   if (widget.widgetVariationPage != null)
                     IconButton(
                       onPressed: () => Nav.push(context, widget.widgetVariationPage!),
@@ -194,14 +198,14 @@ class _WidgetViewerState extends State<WidgetViewer> {
                         ),
                       ),
                     ),
-                  if (widget.playWidgetPage != null)
-                    IconButton(
-                      onPressed: () => Nav.push(context, widget.playWidgetPage!),
-                      icon: Icon(
-                        Icons.play_circle_outline_rounded,
-                        color: Theme.of(context).colorScheme.onBackground,
-                      ),
-                    ),
+                  // if (widget.playWidgetPage != null)
+                  //   IconButton(
+                  //     onPressed: () => Nav.push(context, widget.playWidgetPage!),
+                  //     icon: Icon(
+                  //       Icons.play_circle_outline_rounded,
+                  //       color: Theme.of(context).colorScheme.onBackground,
+                  //     ),
+                  //   ),
                 ],
               )
             ],

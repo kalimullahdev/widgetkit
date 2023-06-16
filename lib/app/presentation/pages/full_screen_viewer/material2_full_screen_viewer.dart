@@ -4,11 +4,11 @@ import 'package:widgetkit/app/presentation/widgets/material2_wrapper.dart';
 class Material2FullScreenViewerPage extends StatelessWidget {
   const Material2FullScreenViewerPage({
     Key? key,
-    required this.widget,
+    this.widget,
     this.appBar,
   }) : super(key: key);
 
-  final Widget widget;
+  final Widget? widget;
   final AppBar? appBar;
 
   @override
