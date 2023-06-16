@@ -6,9 +6,11 @@ class Material2FullScreenViewerPage extends StatelessWidget {
     Key? key,
     this.widget,
     this.appBar,
+    this.bodyChild,
   }) : super(key: key);
 
   final Widget? widget;
+  final Widget? bodyChild;
   final AppBar? appBar;
 
   @override
@@ -16,11 +18,12 @@ class Material2FullScreenViewerPage extends StatelessWidget {
     return Material2Wrapper(
       child: Scaffold(
         appBar: appBar,
-        body: Container(
-          padding: const EdgeInsets.all(16),
-          alignment: Alignment.center,
-          child: widget,
-        ),
+        body: bodyChild ??
+            Container(
+              padding: const EdgeInsets.all(16),
+              alignment: Alignment.center,
+              child: widget,
+            ),
       ),
     );
   }

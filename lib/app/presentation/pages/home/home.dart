@@ -8,6 +8,7 @@ import 'package:widgetkit/app/presentation/pages/search.dart';
 import 'package:widgetkit/app/presentation/pages/widget_types.dart';
 import 'package:widgetkit/app/presentation/widgets/app_list_tile.dart';
 import 'package:widgetkit/app/presentation/widgets/theme_changing_icon.dart';
+import 'package:widgetkit/main.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -42,6 +43,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: ListView(
         children: [
+          const TestingWidget(),
           // AppListTile(
           //   title: 'WidgetKit',
           //   onTap: () {},

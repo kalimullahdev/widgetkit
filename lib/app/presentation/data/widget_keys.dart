@@ -15,6 +15,7 @@ class WidgetKeys {
   static const String materialAppbar = '$material$appbar';
   static const String materialAppbarBasic = '$materialAppbar${variation}basic';
   static const String materialAppbarAction = '$materialAppbar${variation}action';
+  static const String materialAppbarSearch = '$materialAppbar${variation}search';
   // static const String materialAppbarV1 = '${_materialAppbarVar}1';
   // static const String materialAppbarV2 = '${_materialAppbarVar}2';
 
