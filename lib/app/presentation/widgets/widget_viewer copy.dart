@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:widgetkit/app/application/favourite_cubit/favourite_cubit.dart';
 import 'package:widgetkit/app/application/favourite_cubit/favourite_state.dart';
-import 'package:widgetkit/app/application/theme_cubit/theme_cubit.dart';
 import 'package:widgetkit/app/core/constants/app_svgs.dart';
 import 'package:widgetkit/app/core/extensions/e_buildcontext.dart';
 import 'package:widgetkit/app/core/routing/app_routes_name.dart';
@@ -70,29 +69,107 @@ class _WidgetViewerState extends State<WidgetViewer> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 4),
       child: Card(
-        elevation: 0.6,
+        elevation: 0.5,
         child: Padding(
-          padding: const EdgeInsets.only(bottom: 0, top: 4, left: 8, right: 8),
+          padding: const EdgeInsets.only(bottom: 16, top: 4, left: 8, right: 8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Text(
-                  widget.title, // character limit is 30
-                  overflow: TextOverflow.ellipsis,
-                  style: context.themeData.textTheme.titleMedium,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: SizedBox(
+                      child: Text(
+                        widget.title, // character limit is 30
+                        overflow: TextOverflow.ellipsis,
+                        style: context.themeData.textTheme.titleMedium,
+                      ),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      if (widget.playWidgetPage != null)
+                        IconButton(
+                          onPressed: () => Nav.push(context, widget.playWidgetPage!),
+                          icon: Icon(
+                            Icons.play_circle_outline_rounded,
+                            color: Theme.of(context).colorScheme.onBackground,
+                          ),
+                        ),
+                      if (widget.widgetVariationPage != null)
+                        IconButton(
+                          onPressed: () => Nav.push(context, widget.widgetVariationPage!),
+                          icon: SvgPicture.asset(
+                            AppSvgs.variations,
+                            height: 20,
+                            colorFilter: ColorFilter.mode(
+                              context.themeData.colorScheme.onBackground,
+                              BlendMode.srcATop,
+                            ),
+                          ),
+                        ),
+                      if (widget.expandWidgetPage != null)
+                        IconButton(
+                          onPressed: () => Nav.push(context, widget.expandWidgetPage!),
+                          icon: Icon(
+                            Icons.expand_rounded,
+                            color: Theme.of(context).colorScheme.onBackground,
+                          ),
+                        ),
+                      BlocBuilder<FavouriteCubit, FavouriteState>(
+                        builder: (context, favouriteState) {
+                          final isWidgetFavorited = favouriteState.favourites.contains(widget.widgetKey);
+                          return IconButton(
+                            onPressed: () async {
+                              final favouriteCubit = context.read<FavouriteCubit>();
+
+                              if (isWidgetFavorited) {
+                                final currentPageName = ModalRoute.of(context)?.settings.name;
+                                final isFavoritePage = currentPageName != null && currentPageName == AppRouteNames.favoriteRoute;
+
+                                if (isFavoritePage) {
+                                  final removeFromFavorite = await _removeFromFavoriteDialog(context, widget.title) ?? false;
+
+                                  if (removeFromFavorite) {
+                                    favouriteCubit.removeFromFavourite(widget.widgetKey);
+                                  }
+                                } else {
+                                  favouriteCubit.removeFromFavourite(widget.widgetKey);
+                                }
+                              } else {
+                                favouriteCubit.addToFavourite(widget.widgetKey);
+                              }
+                            },
+                            icon: Icon(
+                              isWidgetFavorited ? FontAwesomeIcons.solidHeart : FontAwesomeIcons.heart,
+                              size: 18,
+                              color: Theme.of(context).colorScheme.onBackground,
+                            ),
+                          );
+                        },
+                      ),
+                      SizedBox(
+                        width: 50,
+                        height: 34,
+                        child: _WidgetViewerTextButton(
+                          text: "USE",
+                          isActive: _showUsageDescription,
+                          onTap: () {
+                            setState(() {
+                              _showUsageDescription = !_showUsageDescription;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  )
+                ],
               ),
-              const _Divider(),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 2),
-                child: Center(child: widget.widget),
-              ),
-              const _Divider(),
               if (_showUsageDescription) ...[
+                //TODO: improve line heigh, if requried
                 RichText(
                   text: TextSpan(
                     style: context.themeData.textTheme.bodySmall?.copyWith(),
@@ -123,85 +200,10 @@ class _WidgetViewerState extends State<WidgetViewer> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: 12),
               ],
-              Row(
-                children: [
-                  SizedBox(
-                    width: 60,
-                    height: 34,
-                    child: _WidgetViewerTextButton(
-                      text: "USE",
-                      isActive: _showUsageDescription,
-                      onTap: () {
-                        setState(() {
-                          _showUsageDescription = !_showUsageDescription;
-                        });
-                      },
-                    ),
-                  ),
-                  BlocBuilder<FavouriteCubit, FavouriteState>(
-                    builder: (context, favouriteState) {
-                      final isWidgetFavorited = favouriteState.favourites.contains(widget.widgetKey);
-                      return IconButton(
-                        onPressed: () async {
-                          final favouriteCubit = context.read<FavouriteCubit>();
-
-                          if (isWidgetFavorited) {
-                            final currentPageName = ModalRoute.of(context)?.settings.name;
-                            final isFavoritePage = currentPageName != null && currentPageName == AppRouteNames.favoriteRoute;
-
-                            if (isFavoritePage) {
-                              final removeFromFavorite = await _removeFromFavoriteDialog(context, widget.title) ?? false;
-
-                              if (removeFromFavorite) {
-                                favouriteCubit.removeFromFavourite(widget.widgetKey);
-                              }
-                            } else {
-                              favouriteCubit.removeFromFavourite(widget.widgetKey);
-                            }
-                          } else {
-                            favouriteCubit.addToFavourite(widget.widgetKey);
-                          }
-                        },
-                        icon: Icon(
-                          isWidgetFavorited ? FontAwesomeIcons.solidHeart : FontAwesomeIcons.heart,
-                          size: 18,
-                          color: Theme.of(context).colorScheme.onBackground,
-                        ),
-                      );
-                    },
-                  ),
-                  if (widget.expandWidgetPage != null)
-                    IconButton(
-                      onPressed: () => Nav.push(context, widget.expandWidgetPage!),
-                      icon: Icon(
-                        Icons.expand_rounded,
-                        color: Theme.of(context).colorScheme.onBackground,
-                      ),
-                    ),
-                  if (widget.widgetVariationPage != null)
-                    IconButton(
-                      onPressed: () => Nav.push(context, widget.widgetVariationPage!),
-                      icon: SvgPicture.asset(
-                        AppSvgs.variations,
-                        height: 20,
-                        colorFilter: ColorFilter.mode(
-                          context.themeData.colorScheme.onBackground,
-                          BlendMode.srcATop,
-                        ),
-                      ),
-                    ),
-                  if (widget.playWidgetPage != null)
-                    IconButton(
-                      onPressed: () => Nav.push(context, widget.playWidgetPage!),
-                      icon: Icon(
-                        Icons.play_circle_outline_rounded,
-                        color: Theme.of(context).colorScheme.onBackground,
-                      ),
-                    ),
-                ],
-              )
+              Center(child: widget.widget),
+              // const SizedBox(height: 8),
             ],
           ),
         ),
@@ -229,21 +231,6 @@ class _WidgetViewerState extends State<WidgetViewer> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class _Divider extends StatelessWidget {
-  const _Divider();
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<ThemeCubit, bool>(
-      builder: (context, isDarkTheme) {
-        return Divider(
-          color: context.themeData.dividerColor.withOpacity(isDarkTheme ? .09 : 0.15),
-        );
-      },
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:widgetkit/app/presentation/data/widget_keys.dart';
 import 'package:widgetkit/app/presentation/data/widget_variations.dart';
 import 'package:widgetkit/app/presentation/pages/full_screen_viewer/material2_full_screen_viewer.dart';
 import 'package:widgetkit/app/presentation/pages/widget_variations.dart';
+import 'package:widgetkit/app/presentation/widgets/widget_viewer.dart';
 import 'package:widgetkit/widgets/material_appbar.dart';
 import 'package:widgetkit/widgets/material_appbar_action.dart';
 import 'package:widgetkit/widgets/material_elevated_button.dart';
@@ -34,7 +35,11 @@ class WidgetViewerData {
     widgetFileName: 'material_elevated_button.dart',
     widgetVariationPage: WidgetVariationsPage(
       appbarTitle: 'Elevated Buttons',
-      widgets: [...WidgetVariations.materialElevatedButton],
+      widgets: [
+        WidgetViewer.material(
+          widgetViewerDataClass: WidgetVariations.materialElevatedButtonV1,
+        )
+      ],
     ),
     playWidgetPage: const ElevatedButtonPlayerPage(),
     expandWidgetPage: const Material2FullScreenViewerPage(widget: MaterialElevatedButton()),

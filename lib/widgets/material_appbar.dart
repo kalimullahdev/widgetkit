@@ -6,6 +6,7 @@ class MaterialAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       title: const Text("Appbar"),
     );
   }

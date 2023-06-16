@@ -1,17 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:widgetkit/app/domain/data_classes/widget_viewer.dart';
 import 'package:widgetkit/app/presentation/data/widget_keys.dart';
-import 'package:widgetkit/app/presentation/widgets/widget_viewer.dart';
+import 'package:widgetkit/widgets/material_elevated_button_v1.dart';
 
 class WidgetVariations {
-  static final materialElevatedButton = [
-    WidgetViewer.material(
-      widgetViewerDataClass: const WidgetViewerDataClass(
-        title: "titleLarge",
-        widgetFileName: "widgetFileName",
-        widget: Text("data"),
-        widgetKey: WidgetKeys.materialElevatedButtonV1,
-      ),
-    ),
-  ];
+  static const materialElevatedButtonV1 = WidgetViewerDataClass(
+    title: 'Elevated Button',
+    widget: MaterialElevatedButtonV1(),
+    widgetKey: WidgetKeys.materialElevatedButtonV1,
+    widgetFileName: 'material_elevated_button_v1.dart',
+  );
 }
