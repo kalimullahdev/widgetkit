@@ -29,6 +29,7 @@ class WidgetViewerData {
   );
 
   static final materialAppbar = WidgetViewerWithVariationDataClass(
+    widgetKeyName: WidgetKeys.materialAppbar,
     widgetViewerDataClass: materialAppbarBasic,
     variationPage: WidgetVariationsPage(
       appbarTitle: 'Appbars',
@@ -105,15 +106,17 @@ class ElevatedButtonPlayerPage extends StatelessWidget {
 class WidgetViewerWithVariationDataClass extends WidgetViewerDataClass {
   final Widget variationPage;
   final WidgetViewerDataClass widgetViewerDataClass;
+  final String widgetKeyName;
 
   WidgetViewerWithVariationDataClass({
     required this.variationPage,
     required this.widgetViewerDataClass,
+    required this.widgetKeyName,
   }) : super(
           title: widgetViewerDataClass.title,
           widgetFileName: widgetViewerDataClass.widgetFileName,
           widget: widgetViewerDataClass.widget,
-          widgetKey: widgetViewerDataClass.widgetKey,
+          widgetKey: widgetKeyName,
           expandWidgetPage: widgetViewerDataClass.expandWidgetPage,
           playWidgetPage: widgetViewerDataClass.playWidgetPage,
           widgetVariationPage: widgetViewerDataClass.widgetVariationPage,
