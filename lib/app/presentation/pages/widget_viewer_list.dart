@@ -7,12 +7,10 @@ class WidgetViewerListPage extends StatefulWidget {
     Key? key,
     this.customAppbarTitle,
     required this.keywords,
-    this.showVariation = false,
   }) : super(key: key);
 
   final String? customAppbarTitle;
   final List<String> keywords;
-  final bool showVariation;
 
   @override
   State<WidgetViewerListPage> createState() => _WidgetViewerListPageState();
@@ -29,14 +27,38 @@ class _WidgetViewerListPageState extends State<WidgetViewerListPage> with Filter
         actions: const [ThemeChangingIcon()],
       ),
       body: FutureBuilder(
-        future: widget.showVariation ? filterWidgets(widget.keywords) : filterWidgetsWithoutVariations(widget.keywords),
+        future: filterWidgetsWithoutVariations(widget.keywords),
         builder: (context, snapshot) {
           if (snapshot.hasData && snapshot.data != null) {
             final filteredWidgets = snapshot.data!;
-            return ListView.builder(
-              itemCount: filteredWidgets.length,
-              itemBuilder: (BuildContext context, int index) => filteredWidgets[index],
-            );
+            final filteredWidgetsLength = filteredWidgets.length;
+
+            if (filteredWidgetsLength > 1) {
+              return ListView.builder(
+                itemCount: filteredWidgetsLength,
+                itemBuilder: (BuildContext context, int index) {
+                  return filteredWidgets[index];
+                },
+              );
+            } else {
+              return FutureBuilder(
+                future: filterWidgetsVariations(widget.keywords),
+                builder: (context, snapshot2) {
+                  if (snapshot2.hasData && snapshot2.data != null) {
+                    final filteredVariationWidgets = snapshot2.data!;
+                    return ListView.builder(
+                      itemCount: filteredVariationWidgets.length,
+                      itemBuilder: (context, index) {
+                        return filteredVariationWidgets[index];
+                      },
+                    );
+                  }
+                  return const Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  );
+                },
+              );
+            }
           }
           return const Center(
             child: CircularProgressIndicator.adaptive(),

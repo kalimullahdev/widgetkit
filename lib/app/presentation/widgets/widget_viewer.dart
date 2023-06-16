@@ -10,6 +10,7 @@ import 'package:widgetkit/app/core/extensions/e_buildcontext.dart';
 import 'package:widgetkit/app/core/routing/app_routes_name.dart';
 import 'package:widgetkit/app/core/routing/nav.dart';
 import 'package:widgetkit/app/domain/data_classes/widget_viewer.dart';
+import 'package:widgetkit/app/presentation/data/widget_viewer.dart';
 import 'package:widgetkit/app/presentation/widgets/material2_wrapper.dart';
 
 class WidgetViewer extends StatefulWidget {
@@ -22,7 +23,7 @@ class WidgetViewer extends StatefulWidget {
       widget: Material2Wrapper(child: widgetViewerDataClass.widget),
       widgetKey: widgetViewerDataClass.widgetKey,
       widgetName: widgetViewerDataClass.widget.toString(),
-      widgetVariationPage: widgetViewerDataClass.widgetVariationPage,
+      widgetVariationPage: (widgetViewerDataClass is WidgetViewerWithVariationDataClass) ? widgetViewerDataClass.variationPage : null,
       expandWidgetPage: widgetViewerDataClass.expandWidgetPage,
       playWidgetPage: widgetViewerDataClass.playWidgetPage,
     );
@@ -92,39 +93,40 @@ class _WidgetViewerState extends State<WidgetViewer> {
                 child: Center(child: widget.widget),
               ),
               const _Divider(),
-              if (_showUsageDescription) ...[
-                RichText(
-                  text: TextSpan(
-                    style: context.themeData.textTheme.bodySmall?.copyWith(),
-                    children: [
-                      TextSpan(
-                        text: """To use ${widget.title},
-  * In widgetkit flutter project 
-  * Go to lib > widgets > """,
-                      ),
-                      TextSpan(
-                        text: widget.widgetFileName,
-                        style: context.themeData.textTheme.bodySmall?.copyWith(
-                          fontWeight: FontWeight.bold,
+              if (_showUsageDescription)
+                Padding(
+                  padding: const EdgeInsets.only(top: 4.0, bottom: 4.0, left: 2),
+                  child: RichText(
+                    text: TextSpan(
+                      style: context.themeData.textTheme.bodySmall?.copyWith(),
+                      children: [
+                        TextSpan(
+                          text: """ To use ${widget.title},
+   * In widgetkit flutter project 
+   * Go to lib > widgets > """,
                         ),
-                      ),
-                      const TextSpan(
-                        text: " file\n  * And copy ",
-                      ),
-                      TextSpan(
-                        text: widget.widgetName,
-                        style: context.themeData.textTheme.bodySmall?.copyWith(
-                          fontWeight: FontWeight.bold,
+                        TextSpan(
+                          text: widget.widgetFileName,
+                          style: context.themeData.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      const TextSpan(
-                        text: " widget",
-                      ),
-                    ],
+                        const TextSpan(
+                          text: " file\n   * And copy ",
+                        ),
+                        TextSpan(
+                          text: widget.widgetName,
+                          style: context.themeData.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const TextSpan(
+                          text: " widget",
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                const SizedBox(height: 4),
-              ],
               Row(
                 children: [
                   SizedBox(

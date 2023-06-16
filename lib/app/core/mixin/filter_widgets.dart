@@ -7,6 +7,7 @@ import 'package:widgetkit/app/presentation/data/widgets_map.dart';
 
 //TODO: improve it, if possible
 mixin FilterWidgetsMixin {
+  //TODO there are 3 functions filterWidgets, filterWidgetsVariations and filterWidgetsWithoutVariations. make it one
   Future<List<Widget>> filterWidgets(List<String> keywords) {
     return Isolate.run(() {
       final filteredWidgetEntries = widgetsMap.entries.where((element) {
@@ -14,6 +15,21 @@ mixin FilterWidgetsMixin {
           true,
           (previousValue, keyword) {
             return previousValue && element.key.contains(keyword);
+          },
+        );
+      });
+
+      return Map.fromEntries(filteredWidgetEntries).values.toList();
+    });
+  }
+
+  Future<List<Widget>> filterWidgetsVariations(List<String> keywords) {
+    return Isolate.run(() {
+      final filteredWidgetEntries = widgetsMap.entries.where((element) {
+        return keywords.reversed.foldAndReturnIfNotFound(
+          true,
+          (previousValue, keyword) {
+            return previousValue && element.key.contains(keyword) && element.key.contains(WidgetKeys.variation);
           },
         );
       });

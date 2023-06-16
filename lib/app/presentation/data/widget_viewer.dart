@@ -14,18 +14,29 @@ import 'package:widgetkit/widgets/material_outlined_button.dart';
 import 'package:widgetkit/widgets/material_text_button.dart';
 
 class WidgetViewerData {
-  static const materialAppbar = WidgetViewerDataClass(
-    title: 'Simple',
+  static const materialAppbarBasic = WidgetViewerDataClass(
+    title: 'Basic Appbar',
     widget: MaterialAppbar(),
-    widgetKey: WidgetKeys.materialAppbar,
+    widgetKey: WidgetKeys.materialAppbarBasic,
     widgetFileName: 'material_appbar.dart',
   );
 
   static const materialAppbarAction = WidgetViewerDataClass(
-    title: 'With Action',
+    title: 'Appbar with action',
     widget: MaterialAppbarAction(),
     widgetKey: WidgetKeys.materialAppbarAction,
     widgetFileName: 'material_appbar_action.dart',
+  );
+
+  static final materialAppbar = WidgetViewerWithVariationDataClass(
+    widgetViewerDataClass: materialAppbarBasic,
+    variationPage: WidgetVariationsPage(
+      appbarTitle: 'Appbars',
+      widgets: [
+        WidgetViewer.material(widgetViewerDataClass: materialAppbarBasic),
+        WidgetViewer.material(widgetViewerDataClass: materialAppbarAction),
+      ],
+    ),
   );
 
   static final materialElevatedButton = WidgetViewerDataClass(
@@ -88,4 +99,23 @@ class ElevatedButtonPlayerPage extends StatelessWidget {
       ),
     );
   }
+}
+
+//TODO: separate it
+class WidgetViewerWithVariationDataClass extends WidgetViewerDataClass {
+  final Widget variationPage;
+  final WidgetViewerDataClass widgetViewerDataClass;
+
+  WidgetViewerWithVariationDataClass({
+    required this.variationPage,
+    required this.widgetViewerDataClass,
+  }) : super(
+          title: widgetViewerDataClass.title,
+          widgetFileName: widgetViewerDataClass.widgetFileName,
+          widget: widgetViewerDataClass.widget,
+          widgetKey: widgetViewerDataClass.widgetKey,
+          expandWidgetPage: widgetViewerDataClass.expandWidgetPage,
+          playWidgetPage: widgetViewerDataClass.playWidgetPage,
+          widgetVariationPage: widgetViewerDataClass.widgetVariationPage,
+        );
 }

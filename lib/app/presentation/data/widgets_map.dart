@@ -6,6 +6,7 @@ import 'package:widgetkit/app/presentation/widgets/widget_viewer.dart';
 
 final Map<String, Widget> widgetsMap = {
   WidgetKeys.materialAppbar: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialAppbar),
+  WidgetKeys.materialAppbarBasic: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialAppbarBasic),
   WidgetKeys.materialAppbarAction: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialAppbarAction),
   WidgetKeys.materialElevatedButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialElevatedButton),
   WidgetKeys.materialElevatedButtonV1: WidgetViewer.material(widgetViewerDataClass: WidgetVariations.materialElevatedButtonV1),
