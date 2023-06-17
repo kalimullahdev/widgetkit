@@ -12,6 +12,7 @@ import 'package:widgetkit/widgets/material_appbar_full.dart';
 import 'package:widgetkit/widgets/material_appbar_search.dart';
 import 'package:widgetkit/widgets/material_backdrop.dart';
 import 'package:widgetkit/widgets/material_banner_basic.dart';
+import 'package:widgetkit/widgets/material_banner_dismissible.dart';
 import 'package:widgetkit/widgets/material_bottom_appbar.dart';
 import 'package:widgetkit/widgets/material_bottom_navigation_bar.dart';
 import 'package:widgetkit/widgets/material_elevated_button.dart';
@@ -129,7 +130,6 @@ class WidgetViewerData {
     isScaffoldWidget: true,
   );
 
-  // Create variation of dismissable
   static const materialBannerBasic = WidgetViewerDataClass(
     title: 'Basic Banner',
     widget: MaterialBannerBasic(),
@@ -138,7 +138,27 @@ class WidgetViewerData {
     expandWidgetPage: Material2Wrapper(child: MaterialBannerBasic()),
     isScaffoldWidget: true,
   );
+  static const materialBannerDismissible = WidgetViewerDataClass(
+    title: 'Dismissible Banner',
+    widget: MaterialBannerDismissible(),
+    widgetKey: WidgetKeys.materialBannerDismissible,
+    widgetFileName: 'material_banner_dismissible.dart',
+    expandWidgetPage: Material2Wrapper(child: MaterialBannerDismissible()),
+    isScaffoldWidget: true,
+  );
 
+  static final materialBanner = WidgetViewerWithVariationDataClass(
+    widgetTitle: 'Banner',
+    widgetKeyName: WidgetKeys.materialBanner,
+    widgetViewerDataClass: materialBannerBasic,
+    variationPage: WidgetVariationsPage(
+      appbarTitle: 'Banners',
+      widgets: [
+        WidgetViewer.material(widgetViewerDataClass: materialBannerBasic),
+        WidgetViewer.material(widgetViewerDataClass: materialBannerDismissible),
+      ],
+    ),
+  );
   //TODO: no todo
   static const materialElevatedButton = WidgetViewerDataClass(
     title: 'Elevated Button',
