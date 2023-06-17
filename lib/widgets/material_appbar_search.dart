@@ -15,7 +15,7 @@ class _MaterialAppbarSearchState extends State<MaterialAppbarSearch> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        leading: _isSearching ? const BackButton() : const DrawerButtonIcon(),
+        leading: _isSearching ? const BackButton() : IconButton(onPressed: () {}, icon: const DrawerButtonIcon()),
         title: _isSearching
             ? TextField(
                 controller: _searchController,

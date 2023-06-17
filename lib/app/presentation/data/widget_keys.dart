@@ -34,6 +34,9 @@ class WidgetKeys {
   static const String materialOutlinedButton = '${materialButton}outlined';
   static const String materialTextButton = "${materialButton}text";
   static const String materialFloatingActionButton = "${materialButton}floatingaction";
+  static const String materialToggleButton = '${materialButton}toggle';
+  static const String materialToggleTextButton = '$materialToggleButton${variation}text';
+  static const String materialToggleIconButton = '$materialToggleButton${variation}icon';
 
   static const String materialBottomNavigationBar = "${material}bottomnavigationbar"; //TODO to lower case
 

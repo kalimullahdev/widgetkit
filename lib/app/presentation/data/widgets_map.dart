@@ -23,5 +23,10 @@ final Map<String, Widget> widgetsMap = {
   WidgetKeys.materialOutlinedButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialOutlinedButton),
   WidgetKeys.materialTextButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialTextButton),
   WidgetKeys.materialFloatingActionButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialFloatingActionButton),
+
+  WidgetKeys.materialToggleButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialToggleButton),
+  WidgetKeys.materialToggleTextButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialToggleTextButton),
+  WidgetKeys.materialToggleIconButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialToggleIconButton),
+
   WidgetKeys.materialBottomNavigationBar: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBottomNavigationBar),
 };

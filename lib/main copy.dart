@@ -19,19 +19,10 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          children: [
-            IconButton(icon: const Icon(Icons.menu), onPressed: () {}),
-            const Spacer(),
-            IconButton(icon: const Icon(Icons.search), onPressed: () {}),
-            IconButton(icon: const Icon(Icons.more_vert), onPressed: () {}),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(child: const Icon(Icons.add), onPressed: () {}),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    return const Scaffold(
+      body: Center(
+          // child: MaterialToggleIconButtons(),
+          ),
     );
   }
 }

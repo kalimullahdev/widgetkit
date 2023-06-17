@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:widgetkit/app/application/favourite_cubit/favourite_cubit.dart';
 import 'package:widgetkit/app/application/favourite_cubit/favourite_state.dart';
 import 'package:widgetkit/app/application/theme_cubit/theme_cubit.dart';
+import 'package:widgetkit/app/core/constants/app_colors.dart';
 import 'package:widgetkit/app/core/constants/app_svgs.dart';
 import 'package:widgetkit/app/core/extensions/e_buildcontext.dart';
 import 'package:widgetkit/app/core/routing/app_routes_name.dart';
@@ -120,19 +121,44 @@ class _WidgetViewerState extends State<WidgetViewer> {
                   ],
                 ),
               ),
-              const _Divider(),
-              widget.assetPath != null
-                  ? Image.asset(widget.assetPath!)
-                  : Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 2),
-                      child: Center(
-                        child: SizedBox(
-                          height: widget.isScaffoldWidget ? context.screenSize.height * .68 : null,
-                          child: widget.widget,
-                        ),
-                      ),
+              BlocBuilder<ThemeCubit, bool>(
+                builder: (context, isDarkTheme) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: widget.isScaffoldWidget
+                          ? null
+                          : isDarkTheme
+                              ? AppColors.material2ScaffoldDark
+                              : AppColors.material2ScaffoldLight,
+                      border: Border.all(color: isDarkTheme ? Colors.white10 : Colors.black12),
                     ),
-              const _Divider(),
+                    margin: widget.isScaffoldWidget ? const EdgeInsets.only(top: 6, bottom: 4) : EdgeInsets.zero,
+                    padding: widget.isScaffoldWidget ? EdgeInsets.zero : const EdgeInsets.symmetric(vertical: 16, horizontal: 4),
+                    child: widget.assetPath != null
+                        ? Image.asset(widget.assetPath!)
+                        : Center(
+                            child: SizedBox(
+                              height: widget.isScaffoldWidget ? context.screenSize.height * .68 : null,
+                              child: widget.widget,
+                            ),
+                          ),
+                  );
+                },
+              ),
+              //TODO: todo for below commented code
+              // const _Divider(),
+              // widget.assetPath != null
+              //     ? Image.asset(widget.assetPath!)
+              //     : Padding(
+              //         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 2),
+              //         child: Center(
+              //           child: SizedBox(
+              //             height: widget.isScaffoldWidget ? context.screenSize.height * .68 : null,
+              //             child: widget.widget,
+              //           ),
+              //         ),
+              //       ),
+              // const _Divider(),
               if (_showUsageDescription)
                 Padding(
                   padding: const EdgeInsets.only(top: 4.0, bottom: 4.0, left: 2),
@@ -316,5 +342,5 @@ class _WidgetViewerTextButton extends StatelessWidget {
     );
   }
 }
-  // 
-  // 
+//
+//

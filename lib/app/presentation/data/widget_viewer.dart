@@ -19,6 +19,8 @@ import 'package:widgetkit/widgets/material_elevated_button.dart';
 import 'package:widgetkit/widgets/material_floating_action_button.dart';
 import 'package:widgetkit/widgets/material_outlined_button.dart';
 import 'package:widgetkit/widgets/material_text_button.dart';
+import 'package:widgetkit/widgets/material_toggle_icon_button.dart';
+import 'package:widgetkit/widgets/material_toggle_text_button.dart';
 
 class WidgetViewerData {
   static final materialAppbarBasic = WidgetViewerDataClass(
@@ -159,13 +161,13 @@ class WidgetViewerData {
       ],
     ),
   );
+
   //TODO: no todo
   static const materialElevatedButton = WidgetViewerDataClass(
     title: 'Elevated Button',
     widget: MaterialElevatedButton(),
     widgetKey: WidgetKeys.materialElevatedButton,
     widgetFileName: 'material_elevated_button.dart',
-    expandWidgetPage: Material2FullScreenViewerPage(widget: MaterialElevatedButton()),
   );
 
   static const materialOutlinedButton = WidgetViewerDataClass(
@@ -187,6 +189,32 @@ class WidgetViewerData {
     widget: MaterialFloatingActionButton(),
     widgetKey: WidgetKeys.materialFloatingActionButton,
     widgetFileName: 'material_floating_action_button.dart',
+  );
+  static const materialToggleTextButton = WidgetViewerDataClass(
+    title: 'Toggle Text Button',
+    widget: MaterialToggleTextButton(),
+    widgetKey: WidgetKeys.materialToggleTextButton,
+    widgetFileName: 'material_toggle_text_button.dart',
+  );
+
+  static const materialToggleIconButton = WidgetViewerDataClass(
+    title: 'Toggle Icon Button',
+    widget: MaterialToggleIconButton(),
+    widgetKey: WidgetKeys.materialToggleIconButton,
+    widgetFileName: 'material_toggle_icon_button.dart',
+  );
+
+  static final materialToggleButton = WidgetViewerWithVariationDataClass(
+    widgetTitle: 'Toggle Button',
+    widgetKeyName: WidgetKeys.materialToggleButton,
+    widgetViewerDataClass: materialToggleTextButton,
+    variationPage: WidgetVariationsPage(
+      appbarTitle: 'Toggle Buttons',
+      widgets: [
+        WidgetViewer.material(widgetViewerDataClass: materialToggleTextButton),
+        WidgetViewer.material(widgetViewerDataClass: materialToggleIconButton),
+      ],
+    ),
   );
 
   static final materialBottomNavigationBar = WidgetViewerDataClass(

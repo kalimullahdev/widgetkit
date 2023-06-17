@@ -8,26 +8,26 @@ class MaterialBottomNavigationBar extends StatefulWidget {
 }
 
 class _MaterialBottomNavigationBarState extends State<MaterialBottomNavigationBar> {
-  int _selectedIndex = 0;
-  static const TextStyle _optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
+  int _activeIndex = 0;
+  static const TextStyle _optionStyle = TextStyle(fontSize: 28, fontWeight: FontWeight.w600);
+  static const List _widgetOptions = [
     Text(
-      'Index 0: Home',
+      'Home',
       style: _optionStyle,
     ),
     Text(
-      'Index 1: Business',
+      'Favorite',
       style: _optionStyle,
     ),
     Text(
-      'Index 2: School',
+      'Settings',
       style: _optionStyle,
     ),
   ];
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      _activeIndex = index;
     });
   }
 
@@ -35,7 +35,7 @@ class _MaterialBottomNavigationBarState extends State<MaterialBottomNavigationBa
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: _widgetOptions[_activeIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -44,15 +44,15 @@ class _MaterialBottomNavigationBarState extends State<MaterialBottomNavigationBa
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.favorite),
+            label: 'Favorite',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
-        currentIndex: _selectedIndex,
+        currentIndex: _activeIndex,
         onTap: _onItemTapped,
       ),
     );
