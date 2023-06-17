@@ -33,7 +33,11 @@ class WidgetKeys {
   static const String materialElevatedButton = '${materialButton}elevated';
   static const String materialOutlinedButton = '${materialButton}outlined';
   static const String materialTextButton = "${materialButton}text";
-  static const String materialFloatingActionButton = "${materialButton}floatingaction";
+  static const String materialFloatingActionButtons = "${materialButton}floatingaction";
+  static const String materialFloatingActionButton = "$materialFloatingActionButtons$variation";
+  static const String materialExtendedFloatingActionButton = "$materialFloatingActionButtons${variation}extended";
+  static const String materialMiniFloatingActionButton = "$materialFloatingActionButtons${variation}mini";
+
   static const String materialToggleButton = '${materialButton}toggle';
   static const String materialToggleTextButton = '$materialToggleButton${variation}text';
   static const String materialToggleIconButton = '$materialToggleButton${variation}icon';

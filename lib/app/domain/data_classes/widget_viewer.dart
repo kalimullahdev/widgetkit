@@ -7,7 +7,7 @@ class WidgetViewerDataClass {
   final String widgetKey;
   final String? widgetName; //TODO; remove it if not required
   final Widget? expandWidgetPage;
-  final Widget? playWidgetPage; //TODO: Rename it to interactiveWidgetPage
+  final Widget? playWidgetPage; //TODO: Rename it to interactiveWidgetPage idea from material 2 website
   final String? assetPath;
   final bool? isScaffoldWidget;
 

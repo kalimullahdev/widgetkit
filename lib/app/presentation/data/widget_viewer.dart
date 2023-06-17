@@ -16,7 +16,9 @@ import 'package:widgetkit/widgets/material_banner_dismissible.dart';
 import 'package:widgetkit/widgets/material_bottom_appbar.dart';
 import 'package:widgetkit/widgets/material_bottom_navigation_bar.dart';
 import 'package:widgetkit/widgets/material_elevated_button.dart';
+import 'package:widgetkit/widgets/material_extended_floating_action_button.dart';
 import 'package:widgetkit/widgets/material_floating_action_button.dart';
+import 'package:widgetkit/widgets/material_mini_floating_action_button.dart';
 import 'package:widgetkit/widgets/material_outlined_button.dart';
 import 'package:widgetkit/widgets/material_text_button.dart';
 import 'package:widgetkit/widgets/material_toggle_icon_button.dart';
@@ -189,6 +191,34 @@ class WidgetViewerData {
     widget: MaterialFloatingActionButton(),
     widgetKey: WidgetKeys.materialFloatingActionButton,
     widgetFileName: 'material_floating_action_button.dart',
+  );
+
+  static const materialExtendedFloatingActionButton = WidgetViewerDataClass(
+    title: 'Extented Floating Action Button',
+    widget: MaterialExtendedFloatingActionButton(),
+    widgetKey: WidgetKeys.materialExtendedFloatingActionButton,
+    widgetFileName: 'material_extended_floating_action_button.dart',
+  );
+
+  static const materialMiniFloatingActionButton = WidgetViewerDataClass(
+    title: 'Mini Floating Action Button',
+    widget: MaterialMiniFloatingActionButton(),
+    widgetKey: WidgetKeys.materialMiniFloatingActionButton,
+    widgetFileName: 'material_mini_floating_action_button.dart',
+  );
+
+  static final materialFloatingActionButtons = WidgetViewerWithVariationDataClass(
+    widgetTitle: 'Floating Action Button',
+    widgetKeyName: WidgetKeys.materialFloatingActionButtons,
+    widgetViewerDataClass: materialFloatingActionButton,
+    variationPage: WidgetVariationsPage(
+      appbarTitle: 'Floating Action Buttons',
+      widgets: [
+        WidgetViewer.material(widgetViewerDataClass: materialFloatingActionButton),
+        WidgetViewer.material(widgetViewerDataClass: materialMiniFloatingActionButton),
+        WidgetViewer.material(widgetViewerDataClass: materialExtendedFloatingActionButton),
+      ],
+    ),
   );
   static const materialToggleTextButton = WidgetViewerDataClass(
     title: 'Toggle Text Button',
