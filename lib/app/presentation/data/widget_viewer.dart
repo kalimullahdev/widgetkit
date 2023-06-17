@@ -6,11 +6,12 @@ import 'package:widgetkit/app/presentation/pages/full_screen_viewer/material2_fu
 import 'package:widgetkit/app/presentation/pages/widget_variations.dart';
 import 'package:widgetkit/app/presentation/widgets/material2_wrapper.dart';
 import 'package:widgetkit/app/presentation/widgets/widget_viewer.dart';
-import 'package:widgetkit/app/presentation/widgets/widget_viewer_height_wrapper.dart';
 import 'package:widgetkit/widgets/material_appbar.dart';
 import 'package:widgetkit/widgets/material_appbar_action.dart';
 import 'package:widgetkit/widgets/material_appbar_full.dart';
 import 'package:widgetkit/widgets/material_appbar_search.dart';
+import 'package:widgetkit/widgets/material_backdrop.dart';
+import 'package:widgetkit/widgets/material_bottom_appbar.dart';
 import 'package:widgetkit/widgets/material_bottom_navigation_bar.dart';
 import 'package:widgetkit/widgets/material_elevated_button.dart';
 import 'package:widgetkit/widgets/material_floating_action_button.dart';
@@ -48,6 +49,7 @@ class WidgetViewerData {
       ),
     ),
   );
+
   static const materialAppbarSearch = WidgetViewerDataClass(
     title: 'Appbar with search',
     widget: MaterialAppbarSearch(),
@@ -108,6 +110,27 @@ class WidgetViewerData {
     ),
   );
 
+  static final materialBottomAppbar = WidgetViewerDataClass(
+    title: 'Bottom  Appbar',
+    widget: const MaterialBottomAppbar(),
+    widgetName: const MaterialBottomAppbar().toString(),
+    widgetKey: WidgetKeys.materialBottomAppbar,
+    widgetFileName: 'material_bottom_appbar.dart',
+    expandWidgetPage: const Material2Wrapper(child: MaterialBottomAppbar()),
+    isScaffoldWidget: true,
+  );
+
+  static final materialBackdrop = WidgetViewerDataClass(
+    title: 'Backdrop',
+    widget: const MaterialBackdrop(),
+    widgetName: const MaterialBackdrop().toString(),
+    widgetKey: WidgetKeys.materialBackdrop,
+    widgetFileName: 'material_backdrop.dart',
+    expandWidgetPage: const Material2Wrapper(child: MaterialBackdrop()),
+    isScaffoldWidget: true,
+  );
+
+  //TODO: no todo
   static const materialElevatedButton = WidgetViewerDataClass(
     title: 'Elevated Button',
     widget: MaterialElevatedButton(),
@@ -139,10 +162,11 @@ class WidgetViewerData {
 
   static final materialBottomNavigationBar = WidgetViewerDataClass(
     title: 'Bottom Navigation Bar',
-    widget: const WidgetViewerHeightWrapper(child: MaterialBottomNavigationBar()),
+    widget: const MaterialBottomNavigationBar(),
     widgetName: const MaterialBottomNavigationBar().toString(),
     widgetKey: WidgetKeys.materialBottomNavigationBar,
     widgetFileName: 'material_bottom_navigation_bar.dart',
     expandWidgetPage: const Material2Wrapper(child: MaterialBottomNavigationBar()),
+    isScaffoldWidget: true,
   );
 }

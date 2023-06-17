@@ -31,6 +31,12 @@ class WidgetTypesPagesData {
           keywords: [WidgetKeys.materialBottomNavigationBar],
         ),
       ),
+      WidgetTypeData(
+        title: "Backdrop",
+        page: WidgetViewerListPage(
+          keywords: [WidgetKeys.materialBackdrop],
+        ),
+      ),
     ],
   );
 

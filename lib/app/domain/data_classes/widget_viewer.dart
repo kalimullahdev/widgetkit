@@ -9,6 +9,7 @@ class WidgetViewerDataClass {
   final Widget? expandWidgetPage;
   final Widget? playWidgetPage; //TODO: Rename it to interactiveWidgetPage
   final String? assetPath;
+  final bool? isScaffoldWidget;
 
   const WidgetViewerDataClass({
     required this.title,
@@ -19,5 +20,6 @@ class WidgetViewerDataClass {
     this.expandWidgetPage,
     this.playWidgetPage,
     this.assetPath,
+    this.isScaffoldWidget,
   });
 }

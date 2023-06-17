@@ -30,6 +30,7 @@ class WidgetViewer extends StatefulWidget {
       expandWidgetPage: widgetViewerDataClass.expandWidgetPage,
       playWidgetPage: widgetViewerDataClass.playWidgetPage,
       assetPath: widgetViewerDataClass.assetPath,
+      isScaffoldWidget: widgetViewerDataClass.isScaffoldWidget ?? false,
     );
   }
 
@@ -43,6 +44,7 @@ class WidgetViewer extends StatefulWidget {
       expandWidgetPage: widgetViewerDataClass.expandWidgetPage,
       playWidgetPage: widgetViewerDataClass.playWidgetPage,
       assetPath: widgetViewerDataClass.assetPath,
+      isScaffoldWidget: widgetViewerDataClass.isScaffoldWidget ?? false,
     );
   }
   const WidgetViewer._({
@@ -51,6 +53,7 @@ class WidgetViewer extends StatefulWidget {
     required this.widgetFileName,
     required this.widgetKey,
     required this.widgetName,
+    required this.isScaffoldWidget,
     this.widgetVariationPage,
     this.expandWidgetPage,
     this.playWidgetPage,
@@ -66,6 +69,7 @@ class WidgetViewer extends StatefulWidget {
   final Widget? expandWidgetPage;
   final Widget? playWidgetPage;
   final String? assetPath;
+  final bool isScaffoldWidget;
 
   @override
   State<WidgetViewer> createState() => _WidgetViewerState();
@@ -121,7 +125,12 @@ class _WidgetViewerState extends State<WidgetViewer> {
                   ? Image.asset(widget.assetPath!)
                   : Padding(
                       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 2),
-                      child: Center(child: widget.widget),
+                      child: Center(
+                        child: SizedBox(
+                          height: widget.isScaffoldWidget ? context.screenSize.height * .68 : null,
+                          child: widget.widget,
+                        ),
+                      ),
                     ),
               const _Divider(),
               if (_showUsageDescription)
