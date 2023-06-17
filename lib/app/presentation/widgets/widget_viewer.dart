@@ -40,7 +40,6 @@ class WidgetViewer extends StatefulWidget {
       widget: widgetViewerDataClass.widget,
       widgetKey: widgetViewerDataClass.widgetKey,
       widgetName: widgetViewerDataClass.widget.toString(),
-      widgetVariationPage: widgetViewerDataClass.widgetVariationPage,
       expandWidgetPage: widgetViewerDataClass.expandWidgetPage,
       playWidgetPage: widgetViewerDataClass.playWidgetPage,
       assetPath: widgetViewerDataClass.assetPath,

@@ -5,7 +5,6 @@ class WidgetViewerDataClass {
   final Widget widget;
   final String widgetFileName;
   final String widgetKey;
-  final Widget? widgetVariationPage;
   final Widget? expandWidgetPage;
   final Widget? playWidgetPage;
   final String? assetPath;
@@ -15,9 +14,8 @@ class WidgetViewerDataClass {
     required this.widgetFileName,
     required this.widget,
     required this.widgetKey,
-    this.widgetVariationPage,
     this.expandWidgetPage,
     this.playWidgetPage,
-    this.assetPath, //todo; temp required
+    this.assetPath,
   });
 }

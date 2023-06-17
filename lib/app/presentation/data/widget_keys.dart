@@ -22,12 +22,11 @@ class WidgetKeys {
 
   static const String materialButton = "$material$button";
   static const String materialElevatedButton = '${materialButton}elevated';
-  static const String materialElevatedButtonV1 = '$materialElevatedButton${variation}1';
   static const String materialOutlinedButton = '${materialButton}outlined';
   static const String materialTextButton = "${materialButton}text";
   static const String materialFloatingActionButton = "${materialButton}floatingaction";
 
-  static const String materialBottomNavigationBar = "${material}BottomNavigationBar"; //TODO to lower case
+  static const String materialBottomNavigationBar = "${material}bottomnavigationbar"; //TODO to lower case
 
   static const String cupertino = 'cupertino';
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:widgetkit/app/domain/data_classes/widget_viewer.dart';
 import 'package:widgetkit/app/domain/data_classes/widget_viewer_with_variation.dart';
 import 'package:widgetkit/app/presentation/data/widget_keys.dart';
-import 'package:widgetkit/app/presentation/data/widget_variations.dart';
 import 'package:widgetkit/app/presentation/pages/full_screen_viewer/material2_full_screen_viewer.dart';
 import 'package:widgetkit/app/presentation/pages/widget_variations.dart';
 import 'package:widgetkit/app/presentation/widgets/material2_wrapper.dart';
@@ -13,7 +12,6 @@ import 'package:widgetkit/widgets/material_appbar_action.dart';
 import 'package:widgetkit/widgets/material_appbar_search.dart';
 import 'package:widgetkit/widgets/material_bottom_navigation_bar.dart';
 import 'package:widgetkit/widgets/material_elevated_button.dart';
-import 'package:widgetkit/widgets/material_elevated_button_v1.dart';
 import 'package:widgetkit/widgets/material_floating_action_button.dart';
 import 'package:widgetkit/widgets/material_outlined_button.dart';
 import 'package:widgetkit/widgets/material_text_button.dart';
@@ -78,27 +76,12 @@ class WidgetViewerData {
     ),
   );
 
-  static final materialElevatedButton = WidgetViewerDataClass(
+  static const materialElevatedButton = WidgetViewerDataClass(
     title: 'Elevated Button',
-    widget: const MaterialElevatedButton(),
+    widget: MaterialElevatedButton(),
     widgetKey: WidgetKeys.materialElevatedButton,
     widgetFileName: 'material_elevated_button.dart',
-    widgetVariationPage: WidgetVariationsPage(
-      appbarTitle: 'Elevated Buttons',
-      widgets: [
-        WidgetViewer.material(
-          widgetViewerDataClass: WidgetVariations.materialElevatedButtonV1,
-        )
-      ],
-    ),
-    expandWidgetPage: const Material2FullScreenViewerPage(widget: MaterialElevatedButton()),
-  );
-
-  static const materialElevatedButtonV1 = WidgetViewerDataClass(
-    title: 'Elevated Button',
-    widget: MaterialElevatedButtonV1(),
-    widgetKey: WidgetKeys.materialElevatedButtonV1,
-    widgetFileName: 'material_elevated_button_v1.dart',
+    expandWidgetPage: Material2FullScreenViewerPage(widget: MaterialElevatedButton()),
   );
 
   static const materialOutlinedButton = WidgetViewerDataClass(

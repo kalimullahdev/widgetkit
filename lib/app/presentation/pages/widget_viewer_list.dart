@@ -36,9 +36,7 @@ class _WidgetViewerListPageState extends State<WidgetViewerListPage> with Filter
             if (filteredWidgetsLength > 1) {
               return ListView.builder(
                 itemCount: filteredWidgetsLength,
-                itemBuilder: (BuildContext context, int index) {
-                  return filteredWidgets[index];
-                },
+                itemBuilder: (BuildContext context, int index) => filteredWidgets[index],
               );
             } else {
               return FutureBuilder(
@@ -46,25 +44,32 @@ class _WidgetViewerListPageState extends State<WidgetViewerListPage> with Filter
                 builder: (context, snapshot2) {
                   if (snapshot2.hasData && snapshot2.data != null) {
                     final filteredVariationWidgets = snapshot2.data!;
-                    return ListView.builder(
-                      itemCount: filteredVariationWidgets.length,
-                      itemBuilder: (context, index) {
-                        return filteredVariationWidgets[index];
-                      },
-                    );
+                    return (filteredVariationWidgets.isEmpty)
+                        ? SingleChildScrollView(child: filteredWidgets[0])
+                        : ListView.builder(
+                            itemCount: filteredVariationWidgets.length,
+                            itemBuilder: (context, index) => filteredVariationWidgets[index],
+                          );
                   }
-                  return const Center(
-                    child: CircularProgressIndicator.adaptive(),
-                  );
+                  return const _CenterCircularProgressIndicator();
                 },
               );
             }
           }
-          return const Center(
-            child: CircularProgressIndicator.adaptive(),
-          );
+          return const _CenterCircularProgressIndicator();
         },
       ),
+    );
+  }
+}
+
+class _CenterCircularProgressIndicator extends StatelessWidget {
+  const _CenterCircularProgressIndicator();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: CircularProgressIndicator(),
     );
   }
 }
