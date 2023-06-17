@@ -8,6 +8,7 @@ class WidgetViewerDataClass {
   final Widget? widgetVariationPage;
   final Widget? expandWidgetPage;
   final Widget? playWidgetPage;
+  final String? assetPath;
 
   const WidgetViewerDataClass({
     required this.title,
@@ -17,5 +18,6 @@ class WidgetViewerDataClass {
     this.widgetVariationPage,
     this.expandWidgetPage,
     this.playWidgetPage,
+    this.assetPath, //todo; temp required
   });
 }

@@ -5,10 +5,13 @@ import 'package:widgetkit/app/presentation/data/widget_keys.dart';
 import 'package:widgetkit/app/presentation/data/widget_variations.dart';
 import 'package:widgetkit/app/presentation/pages/full_screen_viewer/material2_full_screen_viewer.dart';
 import 'package:widgetkit/app/presentation/pages/widget_variations.dart';
+import 'package:widgetkit/app/presentation/widgets/material2_wrapper.dart';
 import 'package:widgetkit/app/presentation/widgets/widget_viewer.dart';
+import 'package:widgetkit/app/presentation/widgets/widget_viewer_height_wrapper.dart';
 import 'package:widgetkit/widgets/material_appbar.dart';
 import 'package:widgetkit/widgets/material_appbar_action.dart';
 import 'package:widgetkit/widgets/material_appbar_search.dart';
+import 'package:widgetkit/widgets/material_bottom_navigation_bar.dart';
 import 'package:widgetkit/widgets/material_elevated_button.dart';
 import 'package:widgetkit/widgets/material_elevated_button_v1.dart';
 import 'package:widgetkit/widgets/material_floating_action_button.dart';
@@ -117,5 +120,13 @@ class WidgetViewerData {
     widget: MaterialFloatingActionButton(),
     widgetKey: WidgetKeys.materialFloatingActionButton,
     widgetFileName: 'material_floating_action_button.dart',
+  );
+
+  static const materialBottomNavigationBar = WidgetViewerDataClass(
+    title: 'Bottom Navigation Bar',
+    widget: WidgetViewerHeightWrapper(child: MaterialBottomNavigationBar()),
+    widgetKey: WidgetKeys.materialBottomNavigationBar,
+    widgetFileName: 'material_bottom_navigation_bar.dart',
+    expandWidgetPage: Material2Wrapper(child: MaterialBottomNavigationBar()),
   );
 }

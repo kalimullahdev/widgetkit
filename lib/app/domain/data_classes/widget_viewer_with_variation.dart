@@ -20,5 +20,6 @@ class WidgetViewerWithVariationDataClass extends WidgetViewerDataClass {
           expandWidgetPage: widgetViewerDataClass.expandWidgetPage,
           playWidgetPage: widgetViewerDataClass.playWidgetPage,
           widgetVariationPage: widgetViewerDataClass.widgetVariationPage,
+          assetPath: widgetViewerDataClass.assetPath,
         );
 }

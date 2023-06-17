@@ -10,12 +10,13 @@ class WidgetKeys {
   static const String material = 'material';
   static const String appbar = 'appbars';
   static const String button = 'buttons';
+  static const String search = 'searchbar';
 
   //Unique Keys
   static const String materialAppbar = '$material$appbar';
   static const String materialAppbarBasic = '$materialAppbar${variation}basic';
   static const String materialAppbarAction = '$materialAppbar${variation}action';
-  static const String materialAppbarSearch = '$materialAppbar${variation}search';
+  static const String materialAppbarSearch = '$materialAppbar$variation$search';
   // static const String materialAppbarV1 = '${_materialAppbarVar}1';
   // static const String materialAppbarV2 = '${_materialAppbarVar}2';
 
@@ -25,6 +26,8 @@ class WidgetKeys {
   static const String materialOutlinedButton = '${materialButton}outlined';
   static const String materialTextButton = "${materialButton}text";
   static const String materialFloatingActionButton = "${materialButton}floatingaction";
+
+  static const String materialBottomNavigationBar = "${material}BottomNavigationBar"; //TODO to lower case
 
   static const String cupertino = 'cupertino';
 }

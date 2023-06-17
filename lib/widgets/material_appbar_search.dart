@@ -21,7 +21,9 @@ class _MaterialAppbarSearchState extends State<MaterialAppbarSearch> {
                 controller: _searchController,
                 autofocus: true,
                 onEditingComplete: () async {
-                  context.snackBar("Search query is $searchQuery");
+                  if (searchQuery.isNotEmpty) {
+                    context.snackBar("Search query is $searchQuery");
+                  }
                   FocusManager.instance.primaryFocus?.unfocus();
                 },
                 decoration: const InputDecoration(

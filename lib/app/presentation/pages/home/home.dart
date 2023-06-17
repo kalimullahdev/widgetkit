@@ -8,7 +8,6 @@ import 'package:widgetkit/app/presentation/pages/search.dart';
 import 'package:widgetkit/app/presentation/pages/widget_types.dart';
 import 'package:widgetkit/app/presentation/widgets/app_list_tile.dart';
 import 'package:widgetkit/app/presentation/widgets/theme_changing_icon.dart';
-import 'package:widgetkit/main.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -41,9 +40,12 @@ class _HomePageState extends State<HomePage> {
           const ThemeChangingIcon(),
         ],
       ),
-      body: ListView(
+      body:
+          // true
+          //     ? const MaterialBottomNavigationBar()
+          //     :
+          ListView(
         children: [
-          const TestingWidget(),
           // AppListTile(
           //   title: 'WidgetKit',
           //   onTap: () {},
@@ -69,9 +71,28 @@ class _HomePageState extends State<HomePage> {
             },
             showTrailingArrow: true,
           ),
+          const TestingWidget(),
+
           ...widgetsList,
         ],
       ),
+    );
+  }
+}
+
+class TestingWidget extends StatefulWidget {
+  const TestingWidget({super.key});
+
+  @override
+  State<TestingWidget> createState() => _TestingWidgetState();
+}
+
+class _TestingWidgetState extends State<TestingWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Center(),
     );
   }
 }

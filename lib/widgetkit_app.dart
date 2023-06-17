@@ -28,8 +28,8 @@ class WidgetkitApp extends StatelessWidget {
             colorScheme: darkColorScheme,
             iconTheme: iconThemeData,
           ),
+          // home: const MaterialBottomNavigationBar(),
           home: const HomePage(),
-          // initialRoute: '/',
           routes: {
             AppRouteNames.favoriteRoute: (context) => const FavouritePage(),
           },

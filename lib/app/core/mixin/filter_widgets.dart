@@ -42,7 +42,8 @@ mixin FilterWidgetsMixin {
         return keywords.reversed.fold(
           true,
           (previousValue, keyword) {
-            return previousValue && element.key.contains(keyword.toLowerCase()) && !element.key.contains(WidgetKeys.variation);
+            return previousValue && element.key.contains(keyword.toLowerCase());
+            // && !element.key.contains(WidgetKeys.variation);
           },
         );
       });

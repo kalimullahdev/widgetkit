@@ -29,6 +29,7 @@ class WidgetViewer extends StatefulWidget {
       widgetVariationPage: (widgetViewerDataClass is WidgetViewerWithVariationDataClass) ? widgetViewerDataClass.variationPage : null,
       expandWidgetPage: widgetViewerDataClass.expandWidgetPage,
       playWidgetPage: widgetViewerDataClass.playWidgetPage,
+      assetPath: widgetViewerDataClass.assetPath,
     );
   }
 
@@ -42,6 +43,7 @@ class WidgetViewer extends StatefulWidget {
       widgetVariationPage: widgetViewerDataClass.widgetVariationPage,
       expandWidgetPage: widgetViewerDataClass.expandWidgetPage,
       playWidgetPage: widgetViewerDataClass.playWidgetPage,
+      assetPath: widgetViewerDataClass.assetPath,
     );
   }
   const WidgetViewer._({
@@ -53,6 +55,7 @@ class WidgetViewer extends StatefulWidget {
     this.widgetVariationPage,
     this.expandWidgetPage,
     this.playWidgetPage,
+    this.assetPath,
   });
 
   final String title;
@@ -63,6 +66,7 @@ class WidgetViewer extends StatefulWidget {
   final Widget? widgetVariationPage;
   final Widget? expandWidgetPage;
   final Widget? playWidgetPage;
+  final String? assetPath;
 
   @override
   State<WidgetViewer> createState() => _WidgetViewerState();
@@ -114,10 +118,12 @@ class _WidgetViewerState extends State<WidgetViewer> {
                 ),
               ),
               const _Divider(),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 2),
-                child: Center(child: widget.widget),
-              ),
+              widget.assetPath != null
+                  ? Image.asset(widget.assetPath!)
+                  : Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 2),
+                      child: Center(child: widget.widget),
+                    ),
               const _Divider(),
               if (_showUsageDescription)
                 Padding(
@@ -200,12 +206,8 @@ class _WidgetViewerState extends State<WidgetViewer> {
                       );
                     },
                   ),
-                  // if (widget.expandWidgetPage != null)
                   IconButton(
-                    onPressed: () => Nav.push(
-                      context,
-                      widget.expandWidgetPage ?? Material2FullScreenViewerPage(widget: widget.widget),
-                    ),
+                    onPressed: _viewOnNextScreen,
                     icon: Icon(
                       Icons.expand_rounded,
                       color: Theme.of(context).colorScheme.onBackground,
@@ -237,6 +239,13 @@ class _WidgetViewerState extends State<WidgetViewer> {
           ),
         ),
       ),
+    );
+  }
+
+  void _viewOnNextScreen() {
+    Nav.push(
+      context,
+      widget.expandWidgetPage ?? Material2FullScreenViewerPage(widget: widget.widget),
     );
   }
 }
@@ -274,7 +283,7 @@ class _WidgetViewerTextButton extends StatelessWidget {
   const _WidgetViewerTextButton({
     required this.text,
     this.onTap,
-    this.isActive = false,
+    required this.isActive,
   });
 
   final String text;
