@@ -30,6 +30,3 @@ Future<void> main() async {
     ),
   );
 }
-
-
-// Remove unnecessary assets 

@@ -26,7 +26,7 @@ class WidgetTypesPagesData {
         ),
       ),
       WidgetTypeData(
-        title: "Bottom navigation bar",
+        title: "Bottom Navigation Bar",
         page: WidgetViewerListPage(
           keywords: [WidgetKeys.materialBottomNavigationBar],
         ),
