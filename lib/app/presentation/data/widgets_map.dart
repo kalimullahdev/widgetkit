@@ -11,6 +11,7 @@ final Map<String, Widget> widgetsMap = {
   WidgetKeys.materialAppbarFull: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialAppbarFull),
   WidgetKeys.materialBottomAppbar: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBottomAppbar),
   WidgetKeys.materialBackdrop: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBackdrop),
+  WidgetKeys.materialBannerBasic: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBannerBasic),
 
   ///
   WidgetKeys.materialElevatedButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialElevatedButton),

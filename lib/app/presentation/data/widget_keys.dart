@@ -21,6 +21,7 @@ class WidgetKeys {
 
   static const String materialBottomAppbar = '${material}bottom$appbar';
   static const String materialBackdrop = '${material}backdrop';
+  static const String materialBannerBasic = '${material}bannerbasic';
 
   // static const String materialAppbarV1 = '${_materialAppbarVar}1';
   // static const String materialAppbarV2 = '${_materialAppbarVar}2';

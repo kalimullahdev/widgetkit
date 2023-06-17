@@ -37,6 +37,12 @@ class WidgetTypesPagesData {
           keywords: [WidgetKeys.materialBackdrop],
         ),
       ),
+      WidgetTypeData(
+        title: "Banner",
+        page: WidgetViewerListPage(
+          keywords: [WidgetKeys.materialBannerBasic],
+        ),
+      ),
     ],
   );
 

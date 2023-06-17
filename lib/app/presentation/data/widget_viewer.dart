@@ -11,6 +11,7 @@ import 'package:widgetkit/widgets/material_appbar_action.dart';
 import 'package:widgetkit/widgets/material_appbar_full.dart';
 import 'package:widgetkit/widgets/material_appbar_search.dart';
 import 'package:widgetkit/widgets/material_backdrop.dart';
+import 'package:widgetkit/widgets/material_banner_basic.dart';
 import 'package:widgetkit/widgets/material_bottom_appbar.dart';
 import 'package:widgetkit/widgets/material_bottom_navigation_bar.dart';
 import 'package:widgetkit/widgets/material_elevated_button.dart';
@@ -110,23 +111,31 @@ class WidgetViewerData {
     ),
   );
 
-  static final materialBottomAppbar = WidgetViewerDataClass(
+  static const materialBottomAppbar = WidgetViewerDataClass(
     title: 'Bottom  Appbar',
-    widget: const MaterialBottomAppbar(),
-    widgetName: const MaterialBottomAppbar().toString(),
+    widget: MaterialBottomAppbar(),
     widgetKey: WidgetKeys.materialBottomAppbar,
     widgetFileName: 'material_bottom_appbar.dart',
-    expandWidgetPage: const Material2Wrapper(child: MaterialBottomAppbar()),
+    expandWidgetPage: Material2Wrapper(child: MaterialBottomAppbar()),
     isScaffoldWidget: true,
   );
 
-  static final materialBackdrop = WidgetViewerDataClass(
+  static const materialBackdrop = WidgetViewerDataClass(
     title: 'Backdrop',
-    widget: const MaterialBackdrop(),
-    widgetName: const MaterialBackdrop().toString(),
+    widget: MaterialBackdrop(),
     widgetKey: WidgetKeys.materialBackdrop,
     widgetFileName: 'material_backdrop.dart',
-    expandWidgetPage: const Material2Wrapper(child: MaterialBackdrop()),
+    expandWidgetPage: Material2Wrapper(child: MaterialBackdrop()),
+    isScaffoldWidget: true,
+  );
+
+  // Create variation of dismissable
+  static const materialBannerBasic = WidgetViewerDataClass(
+    title: 'Basic Banner',
+    widget: MaterialBannerBasic(),
+    widgetKey: WidgetKeys.materialBannerBasic,
+    widgetFileName: 'material_banner_basic.dart',
+    expandWidgetPage: Material2Wrapper(child: MaterialBannerBasic()),
     isScaffoldWidget: true,
   );
 

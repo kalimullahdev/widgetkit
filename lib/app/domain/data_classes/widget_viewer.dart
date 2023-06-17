@@ -5,7 +5,7 @@ class WidgetViewerDataClass {
   final Widget widget;
   final String widgetFileName;
   final String widgetKey;
-  final String? widgetName;
+  final String? widgetName; //TODO; remove it if not required
   final Widget? expandWidgetPage;
   final Widget? playWidgetPage; //TODO: Rename it to interactiveWidgetPage
   final String? assetPath;
