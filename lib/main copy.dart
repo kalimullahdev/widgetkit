@@ -19,10 +19,44 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-          // child: MaterialToggleIconButtons(),
+    return const SafeArea(
+      child: Scaffold(
+        body: SizedBox.expand(
+          child: Center(
+              // child: MaterialElevatedCard(),
+              ),
+        ),
+      ),
+    );
+  }
+}
+
+class CardExample extends StatelessWidget {
+  const CardExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              TextButton(
+                child: const Text('BUY TICKETS'),
+                onPressed: () {/* ... */},
+              ),
+              const SizedBox(width: 8),
+              TextButton(
+                child: const Text('LISTEN'),
+                onPressed: () {/* ... */},
+              ),
+              const SizedBox(width: 8),
+            ],
           ),
+        ],
+      ),
     );
   }
 }

@@ -10,12 +10,14 @@ class WidgetViewerDataClass {
   final Widget? playWidgetPage; //TODO: Rename it to interactiveWidgetPage idea from material 2 website
   final String? assetPath;
   final bool? isScaffoldWidget;
+  final bool? donotShowWidgetCanvas;
 
   const WidgetViewerDataClass({
     required this.title,
     required this.widgetFileName,
     required this.widget,
     required this.widgetKey,
+    this.donotShowWidgetCanvas,
     this.widgetName,
     this.expandWidgetPage,
     this.playWidgetPage,

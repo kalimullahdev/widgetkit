@@ -15,9 +15,11 @@ import 'package:widgetkit/widgets/material_banner_basic.dart';
 import 'package:widgetkit/widgets/material_banner_dismissible.dart';
 import 'package:widgetkit/widgets/material_bottom_appbar.dart';
 import 'package:widgetkit/widgets/material_bottom_navigation_bar.dart';
+import 'package:widgetkit/widgets/material_card.dart';
 import 'package:widgetkit/widgets/material_elevated_button.dart';
 import 'package:widgetkit/widgets/material_extended_floating_action_button.dart';
 import 'package:widgetkit/widgets/material_floating_action_button.dart';
+import 'package:widgetkit/widgets/material_header_card.dart';
 import 'package:widgetkit/widgets/material_mini_floating_action_button.dart';
 import 'package:widgetkit/widgets/material_outlined_button.dart';
 import 'package:widgetkit/widgets/material_text_button.dart';
@@ -243,6 +245,33 @@ class WidgetViewerData {
       widgets: [
         WidgetViewer.material(widgetViewerDataClass: materialToggleTextButton),
         WidgetViewer.material(widgetViewerDataClass: materialToggleIconButton),
+      ],
+    ),
+  );
+  static const materialCard = WidgetViewerDataClass(
+    title: 'Card',
+    widget: MaterialCard(),
+    widgetKey: WidgetKeys.materialCard,
+    widgetFileName: 'material_card.dart',
+    donotShowWidgetCanvas: true,
+  );
+
+  static const materialHeaderCard = WidgetViewerDataClass(
+    title: 'Card with header',
+    widget: MaterialHeaderCard(),
+    widgetKey: WidgetKeys.materialHeaderCard,
+    widgetFileName: 'material_header_card.dart',
+    donotShowWidgetCanvas: true,
+  );
+  static final materialCards = WidgetViewerWithVariationDataClass(
+    widgetTitle: 'Cards',
+    widgetKeyName: WidgetKeys.materialCards,
+    widgetViewerDataClass: materialCard,
+    variationPage: WidgetVariationsPage(
+      appbarTitle: 'Cards',
+      widgets: [
+        WidgetViewer.material(widgetViewerDataClass: materialCard),
+        WidgetViewer.material(widgetViewerDataClass: materialHeaderCard),
       ],
     ),
   );

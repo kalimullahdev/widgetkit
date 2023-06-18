@@ -24,7 +24,7 @@ class WidgetKeys {
 
   static const String materialBanner = '${material}banner';
   static const String materialBannerBasic = '$materialBanner${variation}basic';
-  static const String materialBannerDismissible = '$material$variation${variation}dismissible';
+  static const String materialBannerDismissible = '$materialBanner${variation}dismissible';
 
   // static const String materialAppbarV1 = '${_materialAppbarVar}1';
   // static const String materialAppbarV2 = '${_materialAppbarVar}2';
@@ -41,6 +41,10 @@ class WidgetKeys {
   static const String materialToggleButton = '${materialButton}toggle';
   static const String materialToggleTextButton = '$materialToggleButton${variation}text';
   static const String materialToggleIconButton = '$materialToggleButton${variation}icon';
+
+  static const String materialCards = '${material}cards';
+  static const String materialCard = '$materialCards$variation';
+  static const String materialHeaderCard = '$materialCards${variation}header';
 
   static const String materialBottomNavigationBar = "${material}bottomnavigationbar"; //TODO to lower case
 

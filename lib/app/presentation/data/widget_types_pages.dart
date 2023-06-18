@@ -40,7 +40,13 @@ class WidgetTypesPagesData {
       WidgetTypeData(
         title: "Banner",
         page: WidgetViewerListPage(
-          keywords: [WidgetKeys.materialBannerBasic],
+          keywords: [WidgetKeys.materialBanner],
+        ),
+      ),
+      WidgetTypeData(
+        title: "Cards",
+        page: WidgetViewerListPage(
+          keywords: [WidgetKeys.materialCard],
         ),
       ),
     ],

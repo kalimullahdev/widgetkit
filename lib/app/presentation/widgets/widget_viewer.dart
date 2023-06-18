@@ -32,6 +32,7 @@ class WidgetViewer extends StatefulWidget {
       playWidgetPage: widgetViewerDataClass.playWidgetPage,
       assetPath: widgetViewerDataClass.assetPath,
       isScaffoldWidget: widgetViewerDataClass.isScaffoldWidget ?? false,
+      donotShowWidgetCanvas: widgetViewerDataClass.donotShowWidgetCanvas ?? false,
     );
   }
 
@@ -46,6 +47,7 @@ class WidgetViewer extends StatefulWidget {
       playWidgetPage: widgetViewerDataClass.playWidgetPage,
       assetPath: widgetViewerDataClass.assetPath,
       isScaffoldWidget: widgetViewerDataClass.isScaffoldWidget ?? false,
+      donotShowWidgetCanvas: widgetViewerDataClass.donotShowWidgetCanvas ?? false,
     );
   }
   const WidgetViewer._({
@@ -59,6 +61,7 @@ class WidgetViewer extends StatefulWidget {
     this.expandWidgetPage,
     this.playWidgetPage,
     this.assetPath,
+    this.donotShowWidgetCanvas = false,
   });
 
   final String title;
@@ -71,6 +74,7 @@ class WidgetViewer extends StatefulWidget {
   final Widget? playWidgetPage;
   final String? assetPath;
   final bool isScaffoldWidget;
+  final bool donotShowWidgetCanvas;
 
   @override
   State<WidgetViewer> createState() => _WidgetViewerState();
@@ -123,26 +127,28 @@ class _WidgetViewerState extends State<WidgetViewer> {
               ),
               BlocBuilder<ThemeCubit, bool>(
                 builder: (context, isDarkTheme) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: widget.isScaffoldWidget
-                          ? null
-                          : isDarkTheme
-                              ? AppColors.material2ScaffoldDark
-                              : AppColors.material2ScaffoldLight,
-                      border: Border.all(color: isDarkTheme ? Colors.white10 : Colors.black12),
-                    ),
-                    margin: widget.isScaffoldWidget ? const EdgeInsets.only(top: 6, bottom: 4) : EdgeInsets.zero,
-                    padding: widget.isScaffoldWidget ? EdgeInsets.zero : const EdgeInsets.symmetric(vertical: 16, horizontal: 4),
-                    child: widget.assetPath != null
-                        ? Image.asset(widget.assetPath!)
-                        : Center(
-                            child: SizedBox(
-                              height: widget.isScaffoldWidget ? context.screenSize.height * .68 : null,
-                              child: widget.widget,
-                            ),
+                  return widget.donotShowWidgetCanvas
+                      ? widget.widget
+                      : Container(
+                          decoration: BoxDecoration(
+                            color: widget.isScaffoldWidget
+                                ? null
+                                : isDarkTheme
+                                    ? AppColors.material2ScaffoldDark
+                                    : AppColors.material2ScaffoldLight,
+                            border: Border.all(color: isDarkTheme ? Colors.white10 : Colors.black12),
                           ),
-                  );
+                          margin: widget.isScaffoldWidget ? const EdgeInsets.only(top: 6, bottom: 4) : EdgeInsets.zero,
+                          padding: widget.isScaffoldWidget ? EdgeInsets.zero : const EdgeInsets.symmetric(vertical: 24, horizontal: 4),
+                          child: widget.assetPath != null
+                              ? Image.asset(widget.assetPath!)
+                              : Center(
+                                  child: SizedBox(
+                                    height: widget.isScaffoldWidget ? context.screenSize.height * .68 : null,
+                                    child: widget.widget,
+                                  ),
+                                ),
+                        );
                 },
               ),
               //TODO: todo for below commented code
