@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgetkit/widgets/material_divider_card.dart';
 
 void main() => runApp(const MyApp());
 
@@ -23,8 +24,8 @@ class MyHomePage extends StatelessWidget {
       child: Scaffold(
         body: SizedBox.expand(
           child: Center(
-              // child: MaterialElevatedCard(),
-              ),
+            child: MaterialDividerCard(),
+          ),
         ),
       ),
     );

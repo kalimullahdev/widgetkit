@@ -16,6 +16,7 @@ import 'package:widgetkit/widgets/material_banner_dismissible.dart';
 import 'package:widgetkit/widgets/material_bottom_appbar.dart';
 import 'package:widgetkit/widgets/material_bottom_navigation_bar.dart';
 import 'package:widgetkit/widgets/material_card.dart';
+import 'package:widgetkit/widgets/material_divider_card.dart';
 import 'package:widgetkit/widgets/material_elevated_button.dart';
 import 'package:widgetkit/widgets/material_extended_floating_action_button.dart';
 import 'package:widgetkit/widgets/material_floating_action_button.dart';
@@ -263,16 +264,25 @@ class WidgetViewerData {
     widgetFileName: 'material_header_card.dart',
     donotShowWidgetCanvas: true,
   );
+
+  static const materialDividerCard = WidgetViewerDataClass(
+    title: 'Card with Divider',
+    widget: MaterialDividerCard(),
+    widgetKey: WidgetKeys.materialDividerCard,
+    widgetFileName: 'material_divider_card.dart',
+    donotShowWidgetCanvas: true,
+  );
+
   static final materialCards = WidgetViewerWithVariationDataClass(
     widgetTitle: 'Cards',
     widgetKeyName: WidgetKeys.materialCards,
     widgetViewerDataClass: materialCard,
-    // donotShowWidgetOnCanvas: true,
     variationPage: WidgetVariationsPage(
       appbarTitle: 'Cards',
       widgets: [
         WidgetViewer.material(widgetViewerDataClass: materialCard),
         WidgetViewer.material(widgetViewerDataClass: materialHeaderCard),
+        WidgetViewer.material(widgetViewerDataClass: materialDividerCard),
       ],
     ),
   );
