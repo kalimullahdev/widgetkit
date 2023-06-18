@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-// todo text color problem
 class MaterialDividerCard extends StatefulWidget {
   const MaterialDividerCard({super.key});
 
@@ -55,8 +54,12 @@ class _MaterialDividerCardState extends State<MaterialDividerCard> {
                         itemSize: 15.0,
                       ),
                       const SizedBox(width: 16),
-                      Text(rating.toString()),
-                      Text(" (${numberOfReviews.toString()})"),
+                      Text(
+                        "${rating.toString()} (${numberOfReviews.toString()})",
+                        style: TextStyle(
+                          color: Theme.of(context).hintColor,
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 16),
@@ -64,15 +67,21 @@ class _MaterialDividerCardState extends State<MaterialDividerCard> {
                     r'$ • Italian, Cafe',
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
-                      // fontSize: 24,
+                      fontSize: 18,
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
+                  Text(
                     'Small plates, salads & sandwiches an intimate setting with 12 indoor seats plus patio seating.',
-                    style: TextStyle(height: 1.35),
+                    style: TextStyle(
+                      color: Theme.of(context).hintColor,
+                      fontSize: 16,
+                    ),
                   ),
-                  const Divider(height: 50),
+                  const Divider(
+                    height: 40,
+                    thickness: 1,
+                  ),
                   const Text(
                     "Tonight's availability",
                     style: TextStyle(fontSize: 18),

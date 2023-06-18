@@ -26,10 +26,13 @@ class MaterialCard extends StatelessWidget {
               ),
               subtitle: Text('Secondary Text'),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
               child: Text(
                 'Greyhound divisively hello coldly wonderfully marginally far upon excluding.',
+                style: TextStyle(
+                  color: Theme.of(context).hintColor,
+                ),
               ),
             ),
             ButtonBar(

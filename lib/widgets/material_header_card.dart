@@ -27,10 +27,13 @@ class MaterialHeaderCard extends StatelessWidget {
                         "https://images.unsplash.com/photo-1502472584811-0a2f2feb8968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80")),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 16.0, right: 16, top: 16),
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0, right: 16, top: 16),
               child: Text(
                 'Greyhound divisively hello coldly wonderfully marginally far upon excluding.',
+                style: TextStyle(
+                  color: Theme.of(context).hintColor,
+                ),
               ),
             ),
             Row(

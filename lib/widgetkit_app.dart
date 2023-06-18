@@ -27,7 +27,14 @@ class WidgetkitApp extends StatelessWidget {
             useMaterial3: true,
             colorScheme: darkColorScheme,
             iconTheme: iconThemeData,
+            brightness: Brightness.dark,
           ),
+          // darkTheme: ThemeData(
+          //   useMaterial3: true,
+          //   colorScheme: darkColorScheme,
+          //   iconTheme: iconThemeData,
+          //   brightness: Brightness.dark,
+          // ),
           // home: const MaterialBottomNavigationBar(),
           home: const HomePage(),
           routes: {
