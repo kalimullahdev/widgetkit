@@ -30,3 +30,7 @@ Future<void> main() async {
     ),
   );
 }
+
+
+//todos
+// url_launcher configuration

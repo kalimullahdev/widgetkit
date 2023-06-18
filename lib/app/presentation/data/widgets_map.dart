@@ -37,5 +37,9 @@ final Map<String, Widget> widgetsMap = {
   WidgetKeys.materialHeaderCard: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialHeaderCard),
   WidgetKeys.materialDividerCard: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialDividerCard),
 
+  WidgetKeys.materialCheckboxes: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialCheckboxes),
+  WidgetKeys.materialCheckbox: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialCheckbox),
+  WidgetKeys.materialCheckboxLink: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialCheckboxLink),
+
   WidgetKeys.materialBottomNavigationBar: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBottomNavigationBar),
 };

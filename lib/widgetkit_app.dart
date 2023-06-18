@@ -29,13 +29,6 @@ class WidgetkitApp extends StatelessWidget {
             iconTheme: iconThemeData,
             brightness: Brightness.dark,
           ),
-          // darkTheme: ThemeData(
-          //   useMaterial3: true,
-          //   colorScheme: darkColorScheme,
-          //   iconTheme: iconThemeData,
-          //   brightness: Brightness.dark,
-          // ),
-          // home: const MaterialBottomNavigationBar(),
           home: const HomePage(),
           routes: {
             AppRouteNames.favoriteRoute: (context) => const FavouritePage(),

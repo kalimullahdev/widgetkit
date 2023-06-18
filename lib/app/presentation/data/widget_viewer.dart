@@ -16,6 +16,8 @@ import 'package:widgetkit/widgets/material_banner_dismissible.dart';
 import 'package:widgetkit/widgets/material_bottom_appbar.dart';
 import 'package:widgetkit/widgets/material_bottom_navigation_bar.dart';
 import 'package:widgetkit/widgets/material_card.dart';
+import 'package:widgetkit/widgets/material_checkbox.dart';
+import 'package:widgetkit/widgets/material_checkbox_link.dart';
 import 'package:widgetkit/widgets/material_divider_card.dart';
 import 'package:widgetkit/widgets/material_elevated_button.dart';
 import 'package:widgetkit/widgets/material_extended_floating_action_button.dart';
@@ -283,6 +285,32 @@ class WidgetViewerData {
         WidgetViewer.material(widgetViewerDataClass: materialCard),
         WidgetViewer.material(widgetViewerDataClass: materialHeaderCard),
         WidgetViewer.material(widgetViewerDataClass: materialDividerCard),
+      ],
+    ),
+  );
+
+  static const materialCheckbox = WidgetViewerDataClass(
+    title: 'Checkbox',
+    widget: MaterialCheckbox(),
+    widgetKey: WidgetKeys.materialCheckbox,
+    widgetFileName: 'material_checkbox.dart',
+  );
+  static const materialCheckboxLink = WidgetViewerDataClass(
+    title: 'Checkbox with Link',
+    widget: MaterialCheckboxLink(),
+    widgetKey: WidgetKeys.materialCheckboxLink,
+    widgetFileName: 'material_checkbox_link.dart',
+  );
+
+  static final materialCheckboxes = WidgetViewerWithVariationDataClass(
+    widgetTitle: 'Checkboxes',
+    widgetKeyName: WidgetKeys.materialCheckboxes,
+    widgetViewerDataClass: materialCheckbox,
+    variationPage: WidgetVariationsPage(
+      appbarTitle: 'Checkboxes',
+      widgets: [
+        WidgetViewer.material(widgetViewerDataClass: materialCheckbox),
+        WidgetViewer.material(widgetViewerDataClass: materialCheckboxLink),
       ],
     ),
   );

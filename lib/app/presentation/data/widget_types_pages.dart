@@ -49,6 +49,12 @@ class WidgetTypesPagesData {
           keywords: [WidgetKeys.materialCard],
         ),
       ),
+      WidgetTypeData(
+        title: "Checkboxes",
+        page: WidgetViewerListPage(
+          keywords: [WidgetKeys.materialCheckbox],
+        ),
+      ),
     ],
   );
 

@@ -47,6 +47,10 @@ class WidgetKeys {
   static const String materialHeaderCard = '$materialCards${variation}header';
   static const String materialDividerCard = '$materialCards${variation}divider';
 
+  static const String materialCheckboxes = '${material}checkboxes';
+  static const String materialCheckbox = '$materialCheckboxes$variation';
+  static const String materialCheckboxLink = '$materialCheckboxes${variation}link';
+
   static const String materialBottomNavigationBar = "${material}bottomnavigationbar"; //TODO to lower case
 
   static const String cupertino = 'cupertino';
