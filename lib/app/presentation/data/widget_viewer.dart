@@ -267,6 +267,7 @@ class WidgetViewerData {
     widgetTitle: 'Cards',
     widgetKeyName: WidgetKeys.materialCards,
     widgetViewerDataClass: materialCard,
+    // donotShowWidgetOnCanvas: true,
     variationPage: WidgetVariationsPage(
       appbarTitle: 'Cards',
       widgets: [
