@@ -9,16 +9,7 @@ final Map<String, Widget> widgetsMap = {
   WidgetKeys.materialAppbarAction: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialAppbarAction),
   WidgetKeys.materialAppbarSearch: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialAppbarSearch),
   WidgetKeys.materialAppbarFull: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialAppbarFull),
-
-  WidgetKeys.materialBottomAppbar: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBottomAppbar),
-
-  WidgetKeys.materialBackdrop: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBackdrop),
-
-  WidgetKeys.materialBanner: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBanner),
-  WidgetKeys.materialBannerBasic: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBannerBasic),
-  WidgetKeys.materialBannerDismissible: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBannerDismissible),
-
-  // TODO:no todo
+  //
   WidgetKeys.materialElevatedButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialElevatedButton),
   WidgetKeys.materialOutlinedButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialOutlinedButton),
   WidgetKeys.materialTextButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialTextButton),
@@ -32,6 +23,16 @@ final Map<String, Widget> widgetsMap = {
   WidgetKeys.materialToggleTextButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialToggleTextButton),
   WidgetKeys.materialToggleIconButton: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialToggleIconButton),
 
+  WidgetKeys.materialBackdrop: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBackdrop),
+
+  WidgetKeys.materialBanner: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBanner),
+  WidgetKeys.materialBannerBasic: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBannerBasic),
+  WidgetKeys.materialBannerDismissible: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBannerDismissible),
+
+  WidgetKeys.materialBottomAppbar: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBottomAppbar),
+
+  WidgetKeys.materialBottomNavigationBar: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBottomNavigationBar),
+
   WidgetKeys.materialCards: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialCards),
   WidgetKeys.materialCard: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialCard),
   WidgetKeys.materialHeaderCard: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialHeaderCard),
@@ -41,5 +42,7 @@ final Map<String, Widget> widgetsMap = {
   WidgetKeys.materialCheckbox: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialCheckbox),
   WidgetKeys.materialCheckboxLink: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialCheckboxLink),
 
-  WidgetKeys.materialBottomNavigationBar: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialBottomNavigationBar),
+  WidgetKeys.materialInputChips: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialInputChips),
+  WidgetKeys.materialInputChipSimple: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialInputChipSimple),
+  WidgetKeys.materialInputChipInteractive: WidgetViewer.material(widgetViewerDataClass: WidgetViewerData.materialInputChipInteractive),
 };

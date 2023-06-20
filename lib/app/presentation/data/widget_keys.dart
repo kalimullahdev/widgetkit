@@ -19,16 +19,6 @@ class WidgetKeys {
   static const String materialAppbarSearch = '$materialAppbar$variation$search';
   static const String materialAppbarFull = '$materialAppbar${variation}full';
 
-  static const String materialBottomAppbar = '${material}bottom$appbar';
-  static const String materialBackdrop = '${material}backdrop';
-
-  static const String materialBanner = '${material}banner';
-  static const String materialBannerBasic = '$materialBanner${variation}basic';
-  static const String materialBannerDismissible = '$materialBanner${variation}dismissible';
-
-  // static const String materialAppbarV1 = '${_materialAppbarVar}1';
-  // static const String materialAppbarV2 = '${_materialAppbarVar}2';
-
   static const String materialButton = "$material$button";
   static const String materialElevatedButton = '${materialButton}elevated';
   static const String materialOutlinedButton = '${materialButton}outlined';
@@ -42,6 +32,19 @@ class WidgetKeys {
   static const String materialToggleTextButton = '$materialToggleButton${variation}text';
   static const String materialToggleIconButton = '$materialToggleButton${variation}icon';
 
+  static const String materialBackdrop = '${material}backdrop';
+
+  static const String materialBanner = '${material}banner';
+  static const String materialBannerBasic = '$materialBanner${variation}basic';
+  static const String materialBannerDismissible = '$materialBanner${variation}dismissible';
+
+  // static const String materialAppbarV1 = '${_materialAppbarVar}1';
+  // static const String materialAppbarV2 = '${_materialAppbarVar}2';
+
+  static const String materialBottomAppbar = '${material}bottom$appbar';
+
+  static const String materialBottomNavigationBar = "${material}bottomnavigationbar"; //TODO to lower case
+
   static const String materialCards = '${material}cards';
   static const String materialCard = '$materialCards$variation';
   static const String materialHeaderCard = '$materialCards${variation}header';
@@ -51,7 +54,9 @@ class WidgetKeys {
   static const String materialCheckbox = '$materialCheckboxes$variation';
   static const String materialCheckboxLink = '$materialCheckboxes${variation}link';
 
-  static const String materialBottomNavigationBar = "${material}bottomnavigationbar"; //TODO to lower case
+  static const String materialInputChips = '${material}inputchips';
+  static const String materialInputChipSimple = '$materialInputChips${variation}simple';
+  static const String materialInputChipInteractive = '$materialInputChips${variation}interactive';
 
   static const String cupertino = 'cupertino';
 }

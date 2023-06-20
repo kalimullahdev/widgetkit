@@ -26,12 +26,6 @@ class WidgetTypesPagesData {
         ),
       ),
       WidgetTypeData(
-        title: "Bottom Navigation Bar",
-        page: WidgetViewerListPage(
-          keywords: [WidgetKeys.materialBottomNavigationBar],
-        ),
-      ),
-      WidgetTypeData(
         title: "Backdrop",
         page: WidgetViewerListPage(
           keywords: [WidgetKeys.materialBackdrop],
@@ -44,6 +38,18 @@ class WidgetTypesPagesData {
         ),
       ),
       WidgetTypeData(
+        title: "Bottom App Bar",
+        page: WidgetViewerListPage(
+          keywords: [WidgetKeys.materialBottomAppbar],
+        ),
+      ),
+      WidgetTypeData(
+        title: "Bottom Navigation Bar",
+        page: WidgetViewerListPage(
+          keywords: [WidgetKeys.materialBottomNavigationBar],
+        ),
+      ),
+      WidgetTypeData(
         title: "Cards",
         page: WidgetViewerListPage(
           keywords: [WidgetKeys.materialCard],
@@ -53,6 +59,12 @@ class WidgetTypesPagesData {
         title: "Checkboxes",
         page: WidgetViewerListPage(
           keywords: [WidgetKeys.materialCheckbox],
+        ),
+      ),
+      WidgetTypeData(
+        title: "Chips",
+        page: WidgetViewerListPage(
+          keywords: [WidgetKeys.materialInputChips],
         ),
       ),
     ],

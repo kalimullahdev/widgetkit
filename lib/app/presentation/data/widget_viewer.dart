@@ -23,6 +23,8 @@ import 'package:widgetkit/widgets/material_elevated_button.dart';
 import 'package:widgetkit/widgets/material_extended_floating_action_button.dart';
 import 'package:widgetkit/widgets/material_floating_action_button.dart';
 import 'package:widgetkit/widgets/material_header_card.dart';
+import 'package:widgetkit/widgets/material_input_chip_interactive.dart';
+import 'package:widgetkit/widgets/material_input_chip_simple.dart';
 import 'package:widgetkit/widgets/material_mini_floating_action_button.dart';
 import 'package:widgetkit/widgets/material_outlined_button.dart';
 import 'package:widgetkit/widgets/material_text_button.dart';
@@ -311,6 +313,33 @@ class WidgetViewerData {
       widgets: [
         WidgetViewer.material(widgetViewerDataClass: materialCheckbox),
         WidgetViewer.material(widgetViewerDataClass: materialCheckboxLink),
+      ],
+    ),
+  );
+
+  static const materialInputChipSimple = WidgetViewerDataClass(
+    title: 'Simple InputChip',
+    widget: MaterialInputChipSimple(),
+    widgetKey: WidgetKeys.materialInputChipSimple,
+    widgetFileName: 'material_input_chip_simple.dart',
+  );
+
+  static const materialInputChipInteractive = WidgetViewerDataClass(
+    title: 'Interactive InputChip',
+    widget: MaterialInputChipInteractive(),
+    widgetKey: WidgetKeys.materialInputChipInteractive,
+    widgetFileName: 'material_input_chip_interactive.dart',
+  );
+
+  static final materialInputChips = WidgetViewerWithVariationDataClass(
+    widgetTitle: 'InputChip',
+    widgetKeyName: WidgetKeys.materialInputChipSimple,
+    widgetViewerDataClass: materialInputChipSimple,
+    variationPage: WidgetVariationsPage(
+      appbarTitle: 'InputChips',
+      widgets: [
+        WidgetViewer.material(widgetViewerDataClass: materialInputChipSimple),
+        WidgetViewer.material(widgetViewerDataClass: materialInputChipInteractive),
       ],
     ),
   );
