@@ -43,4 +43,11 @@ Future<void> main() async {
 
 /// widgetkit web idea 
 /// fluttersnips.vercel.app
+/// 
+
+
+
+/// Features
+/// send custom code or add collaborate button like in fluttersnips.vercel.app
+/// 
 
