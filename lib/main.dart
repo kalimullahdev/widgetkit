@@ -34,3 +34,13 @@ Future<void> main() async {
 
 //todos
 // url_launcher configuration
+
+
+/// Widgets to add 
+/// floating action button in scaffold
+///
+
+
+/// widgetkit web idea 
+/// fluttersnips.vercel.app
+
